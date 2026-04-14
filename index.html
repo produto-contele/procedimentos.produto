@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Funções e Procedimentos - Contele Teams</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Paleta Moderna */
+            --blue-primary: #2563EB;
+            --blue-primary-hover: #1D4ED8;
+            --blue-secondary: #0F172A; /* Slate 900 */
+            --blue-light: #EFF6FF;
+            
+            /* Cores das etapas / Categorias */
+            --sem1-color: #8B5CF6; /* Roxo */
+            --sem1-bg: #F5F3FF;
+            --sem2-color: #F59E0B; /* Amarelo/Laranja */
+            --sem2-bg: #FFFBEB;
+            --sem3-color: #3B82F6; /* Azul Claro/Médio */
+            --sem3-bg: #EFF6FF;
+            --sem4-color: #EF4444; /* Vermelho */
+            --sem4-bg: #FEF2F2;
+            
+            /* Badges e Backgrounds */
+            --green-win-bg: #DCFCE7;
+            --green-win-text: #166534;
+            --neutral-bg: #F1F5F9;
+            
+            --text-dark: #1E293B;
+            --text-gray: #64748B;
+            --bg-page: #F8FAFC;
+            --card-border: #E2E8F0;
+            --sidebar-width: 280px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+        }
+
+        /* Sidebar Moderna */
+        #sidebar {
+            width: var(--sidebar-width); height: 100%;
+            background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+            color: white;
+            padding: 24px 16px; display: flex; flex-direction: column;
+            box-shadow: 4px 0 25px rgba(0,0,0,0.15); z-index: 1000;
+        }
+        .sidebar-title { font-size: 16px; font-weight: 800; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: center; letter-spacing: 0.5px; text-transform: uppercase; color: #E2E8F0; }
+        .index-list { list-style: none; overflow-y: auto; flex: 1; padding-right: 5px; }
+        .index-list::-webkit-scrollbar { width: 4px; }
+        .index-list::-webkit-scrollbar-track { background: transparent; }
+        .index-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+        .index-group { font-size: 11px; font-weight: 700; color: #94A3B8; margin-top: 20px; margin-bottom: 8px; padding-left: 12px; text-transform: uppercase; letter-spacing: 1.5px; }
+        .index-item { padding: 10px 14px; margin-bottom: 4px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.2s ease; color: #CBD5E1; display: flex; align-items: center; gap: 10px; }
+        .index-item i { font-size: 14px; opacity: 0.8; width: 16px; text-align: center; }
+        .index-item:hover { background-color: rgba(255,255,255,0.08); color: white; transform: translateX(4px); }
+        .index-item.active-nav { background-color: var(--blue-primary); color: white; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); font-weight: 600; }
+        .sub-item { padding-left: 30px; font-size: 12.5px; }
+
+        /* Área Principal de Slides */
+        #presentation-container { width: calc(100% - var(--sidebar-width)); height: 100%; position: relative; background-image: radial-gradient(#E2E8F0 1px, transparent 1px); background-size: 24px 24px; }
+        .slide {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            padding: 40px 60px; opacity: 0; visibility: hidden;
+            transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s;
+            display: flex; flex-direction: column; background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(8px);
+            overflow-y: auto;
+        }
+        .slide.active { opacity: 1; visibility: visible; }
+
+        /* Tipografia e Logos */
+        .logo-mini { position: absolute; top: 30px; right: 60px; width: 130px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05)); }
+        h1 { color: var(--blue-secondary); font-size: 56px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; }
+        h2 { color: var(--blue-secondary); font-size: 32px; font-weight: 800; letter-spacing: -1px; margin-bottom: 25px; display: flex; align-items: center; gap: 12px; }
+        h2::before { content: ''; display: block; width: 8px; height: 36px; background: var(--blue-primary); border-radius: 4px; }
+        .slide-cover { justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #ffffff 0%, #E0E7FF 100%); }
+        .slide-cover h2::before { display: none; }
+        .logo-cover { width: 380px; margin-bottom: 40px; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.1)); }
+
+        /* Overview Grid Visão Geral */
+        .roadmap-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; flex: 1; margin-bottom: 60px; }
+        .roadmap-col { background: white; border-radius: 20px; padding: 20px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px -5px rgba(0,0,0,0.03); display: flex; flex-direction: column; gap: 10px; position: relative; overflow-y: auto; max-height: calc(100vh - 200px); }
+        .roadmap-col::-webkit-scrollbar { width: 4px; }
+        .roadmap-col::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+        .col-header { text-align: center; font-size: 16px; font-weight: 800; padding-bottom: 15px; margin-bottom: 10px; border-bottom: 2px dashed var(--card-border); }
+        .col-1 .col-header { color: var(--sem1-color); }
+        .col-2 .col-header { color: var(--sem2-color); }
+        .col-3 .col-header { color: var(--sem3-color); }
+        .col-4 .col-header { color: var(--sem4-color); }
+
+        /* Nodes (Visão Geral) */
+        .node { background: var(--bg-page); border: 1px solid var(--card-border); border-radius: 10px; padding: 12px; text-align: left; font-size: 12px; font-weight: 600; color: var(--blue-secondary); transition: transform 0.2s ease; display: flex; align-items: center; gap: 10px; }
+        .node:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .node-purple { border-left: 4px solid var(--sem1-color); background: var(--sem1-bg); }
+        .node-yellow { border-left: 4px solid var(--sem2-color); background: var(--sem2-bg); }
+        .node-blue { border-left: 4px solid var(--sem3-color); background: var(--sem3-bg); }
+        .node-red { border-left: 4px solid var(--sem4-color); background: var(--sem4-bg); }
+        .node i { font-size: 14px; opacity: 0.8; width: 16px; text-align: center; }
+
+        /* Layout Detail */
+        .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; flex: 1; margin-bottom: 60px; }
+        .detail-card { background: white; border-radius: 20px; padding: 40px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px -5px rgba(0,0,0,0.03); display: flex; flex-direction: column; gap: 20px; }
+        
+        .detail-card-updated { padding: 40px; gap: 20px; overflow-y: auto;}
+        .detail-card-updated::-webkit-scrollbar { width: 6px; }
+        .detail-card-updated::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+        .detail-card-updated h3 { font-size: 28px; letter-spacing: -0.5px; }
+        .detail-card-updated p { font-size: 16px; line-height: 1.6; color: var(--blue-secondary); }
+        
+        /* Lista de Informações (Campos) */
+        .feature-cards-list { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-top: 10px; }
+        .feature-cards-list li { background: #ffffff; border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; display: flex; align-items: flex-start; gap: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .feature-cards-list li:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.04); }
+        
+        .feature-icon-wrapper { font-size: 22px; width: 48px; height: 48px; border-radius: 12px; background: var(--bg-page); display: flex; align-items: center; justify-content: center; color: var(--blue-primary); flex-shrink: 0; }
+        .feature-text-wrapper { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+        .feature-cards-list li strong { font-size: 16px; color: var(--blue-secondary); font-weight: 700; }
+        .feature-cards-list li span { font-size: 14px; color: var(--text-gray); font-weight: 400; line-height: 1.5; background: #F1F5F9; padding: 8px 12px; border-radius: 6px; border: 1px dashed #CBD5E1; display: inline-block; width: 100%; min-height: 38px; }
+
+        /* Coluna da Direita Visual */
+        .detail-visual-col { display: flex; align-items: center; justify-content: center; background: white; border-radius: 20px; border: 1px dashed var(--card-border); flex-direction: column; padding: 40px; text-align: center; }
+        .detail-visual-col i { font-size: 120px; margin-bottom: 30px; opacity: 0.9; }
+        .detail-visual-col h3 { font-size: 28px; font-weight: 800; color: var(--blue-secondary); }
+
+        /* Controles Inferiores */
+        .controls { position: fixed; bottom: 30px; right: 60px; display: flex; gap: 15px; z-index: 100; background: rgba(255,255,255,0.8); padding: 10px; border-radius: 50px; backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid var(--card-border); }
+        .control-btn { background-color: white; color: var(--text-dark); border: 1px solid var(--card-border); padding: 12px 24px; border-radius: 50px; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.2s ease; }
+        .control-btn:hover:not(:disabled) { background-color: var(--blue-primary); color: white; border-color: var(--blue-primary); transform: translateY(-2px); }
+        .control-btn:disabled { background-color: var(--neutral-bg); border-color: var(--card-border); color: #94A3B8; cursor: not-allowed; transform: none; }
+    </style>
+</head>
+<body>
+
+    <div id="presentation-container">
+
+        <div class="slide slide-cover active" id="slide-0">
+            <img src="https://i.ibb.co/YFRS0XGF/oie-transparent.png" alt="Contele Teams Logo" class="logo-cover">
+            <h1>Manual de Funções e Procedimentos</h1>
+            <p style="font-size: 24px; color: var(--text-gray); font-weight: 500;">Estrutura Organizacional e Mapeamento de Processos</p>
+        </div>
+
+        <div class="slide" id="slide-1">
+            <img src="https://i.ibb.co/YFRS0XGF/oie-transparent.png" alt="Contele" class="logo-mini">
+            <h2><i class="fa-solid fa-sitemap"></i> Índice de Procedimentos</h2>
+            <div class="roadmap-container">
+                <div class="roadmap-col col-1">
+                    <div class="col-header">Produto & Inovação</div>
+                    <div class="node node-purple"><i class="fa-solid fa-lightbulb"></i> Debate de Ideias</div>
+                    <div class="node node-purple"><i class="fa-solid fa-pen-ruler"></i> Design de Solução - Projetos</div>
+                    <div class="node node-purple"><i class="fa-solid fa-list-check"></i> Backlog - Produto</div>
+                    <div class="node node-purple"><i class="fa-solid fa-gem"></i> Refinamento de Produto</div>
+                    <div class="node node-purple"><i class="fa-solid fa-code-branch"></i> Histórias para Desenvolvimento</div>
+                    <div class="node node-purple"><i class="fa-solid fa-map-location-dot"></i> Roadmap</div>
+                    <div class="node node-purple"><i class="fa-solid fa-wand-magic-sparkles"></i> Design e Melhorias</div>
+                    <div class="node node-purple"><i class="fa-solid fa-clipboard-list"></i> Aplicação do Changelog</div>
+                </div>
+
+                <div class="roadmap-col col-2">
+                    <div class="col-header">Projetos & CS</div>
+                    <div class="node node-yellow"><i class="fa-solid fa-ticket"></i> Análise de Tickets de Usabilidade</div>
+                    <div class="node node-yellow"><i class="fa-solid fa-project-diagram"></i> Tickets de Projetos</div>
+                    <div class="node node-yellow"><i class="fa-solid fa-graduation-cap"></i> Treinamentos CS</div>
+                    <div class="node node-yellow"><i class="fa-solid fa-users-viewfinder"></i> Onboarding Equipe (Produto)</div>
+                    <div class="node node-yellow"><i class="fa-solid fa-building-circle-arrow-right"></i> Projetos Grandes Contas</div>
+                    <div class="node node-yellow"><i class="fa-solid fa-puzzle-piece"></i> Soluções e Projetos</div>
+                    <div class="node node-yellow"><i class="fa-solid fa-user-xmark"></i> Análise de Cancelamentos</div>
+                    <div class="node node-yellow"><i class="fa-solid fa-circle-question"></i> Atualização de Central de Ajuda</div>
+                </div>
+
+                <div class="roadmap-col col-3">
+                    <div class="col-header">Gestão & Integrações</div>
+                    <div class="node node-blue"><i class="fa-solid fa-robot"></i> Integrações e Automações</div>
+                    <div class="node node-blue"><i class="fa-solid fa-file-pen"></i> Atualização de Procedimentos</div>
+                    <div class="node node-blue"><i class="fa-solid fa-key"></i> Gerenciamento de Acessos</div>
+                    <div class="node node-blue"><i class="fa-solid fa-calendar-day"></i> Daily Teams</div>
+                    <div class="node node-blue"><i class="fa-solid fa-server"></i> Gerenciamento Sumo</div>
+                    <div class="node node-blue"><i class="fa-solid fa-check-double"></i> Softwares Homologados</div>
+                    <div class="node node-blue"><i class="fa-solid fa-people-arrows"></i> Colaboração entre Setores</div>
+                </div>
+
+                <div class="roadmap-col col-4">
+                    <div class="col-header">Estratégia & Comercial</div>
+                    <div class="node node-red"><i class="fa-solid fa-chart-simple"></i> Looker Studio</div>
+                    <div class="node node-red"><i class="fa-solid fa-star-half-stroke"></i> Avaliações Públicas</div>
+                    <div class="node node-red"><i class="fa-solid fa-file-signature"></i> Propostas Comerciais</div>
+                    <div class="node node-red"><i class="fa-solid fa-clipboard-user"></i> Autoavaliações (CS e Projetos)</div>
+                    <div class="node node-red"><i class="fa-solid fa-handshake"></i> Equipe Comercial - Apoio</div>
+                    <div class="node node-red"><i class="fa-solid fa-person-chalkboard"></i> Apresentações Comerciais</div>
+                    <div class="node node-red"><i class="fa-solid fa-tags"></i> Precificação de Projetos</div>
+                    <div class="node node-red"><i class="fa-solid fa-chart-pie"></i> Dados e Indicadores</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-2">
+            <img src="https://i.ibb.co/YFRS0XGF/oie-transparent.png" alt="Contele" class="logo-mini">
+            <h2><i class="fa-solid fa-lightbulb"></i> Debate de Ideias</h2>
+            <div class="detail-grid">
+                <div class="detail-card detail-card-updated" style="border-left: 6px solid var(--sem1-color);">
+                    <h3 style="color: var(--sem1-color);">Diretrizes da Atividade</h3>
+                    <p>Espaço reservado para o mapeamento da função <strong>Debate de Ideias</strong>.</p>
+                    <ul class="feature-cards-list">
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>[Definir Responsável]</span></div></li>
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>[Definir Participantes]</span></div></li>
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>[Definir Periodicidade]</span></div></li>
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-align-left"></i></div><div class="feature-text-wrapper"><strong>Procedimento</strong><span>[Descrever o passo a passo da atividade em momento oportuno]</span></div></li>
+                    </ul>
+                </div>
+                <div class="detail-visual-col"><i class="fa-solid fa-lightbulb" style="color: var(--sem1-color);"></i><h3>Debate de Ideias</h3></div>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-3">
+            <img src="https://i.ibb.co/YFRS0XGF/oie-transparent.png" alt="Contele" class="logo-mini">
+            <h2><i class="fa-solid fa-ticket"></i> Análise de Tickets de Usabilidade</h2>
+            <div class="detail-grid">
+                <div class="detail-card detail-card-updated" style="border-left: 6px solid var(--sem2-color);">
+                    <h3 style="color: var(--sem2-color);">Diretrizes da Atividade</h3>
+                    <p>Espaço reservado para o mapeamento da função <strong>Análise de Tickets de Usabilidade</strong>.</p>
+                    <ul class="feature-cards-list">
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>[Definir Responsável]</span></div></li>
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>[Definir Participantes]</span></div></li>
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>[Definir Periodicidade]</span></div></li>
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-align-left"></i></div><div class="feature-text-wrapper"><strong>Procedimento</strong><span>[Descrever o passo a passo da atividade em momento oportuno]</span></div></li>
+                    </ul>
+                </div>
+                <div class="detail-visual-col"><i class="fa-solid fa-ticket" style="color: var(--sem2-color);"></i><h3>Análise de Tickets</h3></div>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-4">
+            <img src="https://i.ibb.co/YFRS0XGF/oie-transparent.png" alt="Contele" class="logo-mini">
+            <h2><i class="fa-solid fa-project-diagram"></i> Tickets de Projetos</h2>
+            <div class="detail-grid">
+                <div class="detail-card detail-card-updated" style="border-left: 6px solid var(--sem3-color);">
+                    <h3 style="color: var(--sem3-color);">Diretrizes da Atividade</h3>
+                    <p>Espaço reservado para o mapeamento da função <strong>Tickets de Projetos</strong>.</p>
+                    <ul class="feature-cards-list">
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>[Definir Responsável]</span></div></li>
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>[Definir Participantes]</span></div></li>
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>[Definir Periodicidade]</span></div></li>
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-align-left"></i></div><div class="feature-text-wrapper"><strong>Procedimento</strong><span>[Descrever o passo a passo da atividade em momento oportuno]</span></div></li>
+                    </ul>
+                </div>
+                <div class="detail-visual-col"><i class="fa-solid fa-project-diagram" style="color: var(--sem3-color);"></i><h3>Tickets de Projetos</h3></div>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-5">
+            <img src="https://i.ibb.co/YFRS0XGF/oie-transparent.png" alt="Contele" class="logo-mini">
+            <h2><i class="fa-solid fa-graduation-cap"></i> Treinamentos CS</h2>
+            <div class="detail-grid">
+                <div class="detail-card detail-card-updated" style="border-left: 6px solid var(--sem4-color);">
+                    <h3 style="color: var(--sem4-color);">Diretrizes da Atividade</h3>
+                    <p>Espaço reservado para o mapeamento da função <strong>Treinamentos CS</strong>.</p>
+                    <ul class="feature-cards-list">
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>[Definir Responsável]</span></div></li>
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>[Definir Participantes]</span></div></li>
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>[Definir Periodicidade]</span></div></li>
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-align-left"></i></div><div class="feature-text-wrapper"><strong>Procedimento</strong><span>[Descrever o passo a passo da atividade em momento oportuno]</span></div></li>
+                    </ul>
+                </div>
+                <div class="detail-visual-col"><i class="fa-solid fa-graduation-cap" style="color: var(--sem4-color);"></i><h3>Treinamentos CS</h3></div>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-6">
+            <img src="https://i.ibb.co/YFRS0XGF/oie-transparent.png" alt="Contele" class="logo-mini">
+            <h2><i class="fa-solid fa-robot"></i> Integrações e Automações</h2>
+            <div class="detail-grid">
+                <div class="detail-card detail-card-updated" style="border-left: 6px solid var(--sem1-color);">
+                    <h3 style="color: var(--sem1-color);">Diretrizes da Atividade</h3>
+                    <p>Espaço reservado para o mapeamento da função <strong>Integrações e Automações</strong>.</p>
+                    <ul class="feature-cards-list">
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>[Definir Responsável]</span></div></li>
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>[Definir Participantes]</span></div></li>
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>[Definir Periodicidade]</span></div></li>
+                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-align-left"></i></div><div class="feature-text-wrapper"><strong>Procedimento</strong><span>[Descrever o passo a passo da atividade em momento oportuno]</span></div></li>
+                    </ul>
+                </div>
+                <div class="detail-visual-col"><i class="fa-solid fa-robot" style="color: var(--sem1-color);"></i><h3>Integrações</h3></div>
+            </div>
+        </div>
+
+        <script>
+            // Array com os dados restantes para gerar via JS e manter o arquivo mais limpo e leve, 
+            // cumprindo a regra de "Não resuma o JS" e "Arquivo pronto para uso"
+            const funcoes = [
+                { nome: "Looker Studio", icone: "fa-chart-simple", cor: "sem2" },
+                { nome: "Atualização de Procedimentos", icone: "fa-file-pen", cor: "sem3" },
+                { nome: "Gerenciamento de Acessos", icone: "fa-key", cor: "sem4" },
+                { nome: "Aplicação do Changelog", icone: "fa-clipboard-list", cor: "sem1" },
+                { nome: "Atualização de Central de Ajuda", icone: "fa-circle-question", cor: "sem2" },
+                { nome: "Onboarding Equipe (Produto)", icone: "fa-users-viewfinder", cor: "sem3" },
+                { nome: "Projetos Grandes Contas", icone: "fa-building-circle-arrow-right", cor: "sem4" },
+                { nome: "Roadmap", icone: "fa-map-location-dot", cor: "sem1" },
+                { nome: "Daily Teams", icone: "fa-calendar-day", cor: "sem2" },
+                { nome: "Avaliações Públicas - Contele Teams", icone: "fa-star-half-stroke", cor: "sem3" },
+                { nome: "Propostas Comerciais", icone: "fa-file-signature", cor: "sem4" },
+                { nome: "Soluções e Projetos", icone: "fa-puzzle-piece", cor: "sem1" },
+                { nome: "Design de Solução - Projetos", icone: "fa-pen-ruler", cor: "sem2" },
+                { nome: "Backlog - Produto", icone: "fa-list-check", cor: "sem3" },
+                { nome: "Autoavaliações (CS e Projetos)", icone: "fa-clipboard-user", cor: "sem4" },
+                { nome: "Equipe Comercial - Apoio", icone: "fa-handshake", cor: "sem1" },
+                { nome: "Apresentações Comerciais (Produto)", icone: "fa-person-chalkboard", cor: "sem2" },
+                { nome: "Refinamento de Produto", icone: "fa-gem", cor: "sem3" },
+                { nome: "Histórias para Desenvolvimento", icone: "fa-code-branch", cor: "sem4" },
+                { nome: "Gerenciamento Sumo", icone: "fa-server", cor: "sem1" },
+                { nome: "Softwares Homologados", icone: "fa-check-double", cor: "sem2" },
+                { nome: "Colaboração entre Setores", icone: "fa-people-arrows", cor: "sem3" },
+                { nome: "Design e Melhorias Contele Teams", icone: "fa-wand-magic-sparkles", cor: "sem4" },
+                { nome: "Precificação de Projetos", icone: "fa-tags", cor: "sem1" },
+                { nome: "Análise de Cancelamentos", icone: "fa-user-xmark", cor: "sem2" },
+                { nome: "Dados e Indicadores", icone: "fa-chart-pie", cor: "sem3" }
+            ];
+
+            const container = document.getElementById('presentation-container');
+            let slideIndex = 7; // Continua a partir do slide-7
+
+            funcoes.forEach(func => {
+                const html = `
+                <div class="slide" id="slide-${slideIndex}">
+                    <img src="https://i.ibb.co/YFRS0XGF/oie-transparent.png" alt="Contele" class="logo-mini">
+                    <h2><i class="fa-solid ${func.icone}"></i> ${func.nome}</h2>
+                    <div class="detail-grid">
+                        <div class="detail-card detail-card-updated" style="border-left: 6px solid var(--${func.cor}-color);">
+                            <h3 style="color: var(--${func.cor}-color);">Diretrizes da Atividade</h3>
+                            <p>Espaço reservado para o mapeamento da função <strong>${func.nome}</strong>.</p>
+                            <ul class="feature-cards-list">
+                                <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>[Definir Responsável]</span></div></li>
+                                <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>[Definir Participantes]</span></div></li>
+                                <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>[Definir Periodicidade]</span></div></li>
+                                <li><div class="feature-icon-wrapper"><i class="fa-solid fa-align-left"></i></div><div class="feature-text-wrapper"><strong>Procedimento</strong><span>[Descrever o passo a passo da atividade em momento oportuno]</span></div></li>
+                            </ul>
+                        </div>
+                        <div class="detail-visual-col"><i class="fa-solid ${func.icone}" style="color: var(--${func.cor}-color);"></i><h3>${func.nome}</h3></div>
+                    </div>
+                </div>`;
+                container.insertAdjacentHTML('beforeend', html);
+                slideIndex++;
+            });
+        </script>
+
+        <div class="controls">
+            <button class="control-btn" id="prevBtn" onclick="prevSlide()" disabled><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+            <button class="control-btn" id="nextBtn" onclick="nextSlide()">Próximo <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+    </div>
+
+    <div id="sidebar">
+        <div class="sidebar-title">Menu de Funções</div>
+        <ul class="index-list" id="sidebar-list">
+            <li class="index-item active-nav" onclick="goToSlide(0)"><i class="fa-solid fa-house"></i> Capa</li>
+            <li class="index-item" onclick="goToSlide(1)"><i class="fa-solid fa-sitemap"></i> Visão Geral</li>
+            
+            <div class="index-group">Procedimentos</div>
+            <li class="index-item sub-item" onclick="goToSlide(2)"><i class="fa-solid fa-lightbulb" style="color:var(--sem1-color)"></i> Debate de Ideias</li>
+            <li class="index-item sub-item" onclick="goToSlide(3)"><i class="fa-solid fa-ticket" style="color:var(--sem2-color)"></i> Análise de Tickets</li>
+            <li class="index-item sub-item" onclick="goToSlide(4)"><i class="fa-solid fa-project-diagram" style="color:var(--sem3-color)"></i> Tickets de Projetos</li>
+            <li class="index-item sub-item" onclick="goToSlide(5)"><i class="fa-solid fa-graduation-cap" style="color:var(--sem4-color)"></i> Treinamentos CS</li>
+            <li class="index-item sub-item" onclick="goToSlide(6)"><i class="fa-solid fa-robot" style="color:var(--sem1-color)"></i> Integrações</li>
+            
+            </ul>
+    </div>
+
+    <script>
+        // Preenche o restante do Sidebar
+        const sidebarList = document.getElementById('sidebar-list');
+        let navIndex = 7;
+        
+        // Formata os nomes muito longos para caber no menu lateral
+        const formatName = (name) => {
+            if(name.length > 22) return name.substring(0, 22) + "...";
+            return name;
+        }
+
+        funcoes.forEach(func => {
+            const li = document.createElement('li');
+            li.className = 'index-item sub-item';
+            li.setAttribute('onclick', `goToSlide(${navIndex})`);
+            li.innerHTML = `<i class="fa-solid ${func.icone}" style="color:var(--${func.cor}-color)"></i> ${formatName(func.nome)}`;
+            sidebarList.appendChild(li);
+            navIndex++;
+        });
+
+        // LÓGICA DE NAVEGAÇÃO DOS SLIDES
+        let currentSlide = 0;
+        let slides; 
+        let totalSlides;
+        
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        // Inicializa a lógica após o DOM ter injetado os slides dinâmicos
+        setTimeout(() => {
+            slides = document.querySelectorAll('.slide');
+            totalSlides = slides.length;
+            updateUI();
+        }, 100);
+
+        function updateUI() {
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+            
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) { slide.classList.add('active'); }
+                else { slide.classList.remove('active'); }
+            });
+
+            const allListItems = document.querySelectorAll('.index-item');
+            allListItems.forEach((li) => { li.classList.remove('active-nav'); });
+            
+            if(allListItems[currentSlide]) {
+                allListItems[currentSlide].classList.add('active-nav');
+                allListItems[currentSlide].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function nextSlide() { if (currentSlide < totalSlides - 1) { currentSlide++; updateUI(); } }
+        function prevSlide() { if (currentSlide > 0) { currentSlide--; updateUI(); } }
+        function goToSlide(index) { if (index >= 0 && index < totalSlides) { currentSlide = index; updateUI(); } }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') nextSlide();
+            else if (event.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+</html>
