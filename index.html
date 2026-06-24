@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manual de Funções e Procedimentos - Contele Teams</title>
+    <title>Manual de Funções e Processos - Contele Teams</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -24,11 +24,7 @@
             --sem4-color: #EF4444; /* Vermelho */
             --sem4-bg: #FEF2F2;
             
-            /* Badges e Backgrounds */
-            --green-win-bg: #DCFCE7;
-            --green-win-text: #166534;
             --neutral-bg: #F1F5F9;
-            
             --text-dark: #1E293B;
             --text-gray: #64748B;
             --bg-page: #F8FAFC;
@@ -57,88 +53,89 @@
             box-shadow: 4px 0 25px rgba(0,0,0,0.15); z-index: 1000;
         }
         .sidebar-title { font-size: 16px; font-weight: 800; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: center; letter-spacing: 0.5px; text-transform: uppercase; color: #E2E8F0; }
-        .index-list { list-style: none; overflow-y: auto; flex: 1; padding-right: 5px; }
+        .index-list { list-style: none; overflow-y: hidden; flex: 1; padding-right: 5px; }
+        .index-list:hover { overflow-y: auto; }
         .index-list::-webkit-scrollbar { width: 4px; }
         .index-list::-webkit-scrollbar-track { background: transparent; }
         .index-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
-        .index-group { font-size: 11px; font-weight: 700; color: #94A3B8; margin-top: 20px; margin-bottom: 8px; padding-left: 12px; text-transform: uppercase; letter-spacing: 1.5px; }
-        .index-item { padding: 10px 14px; margin-bottom: 4px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.2s ease; color: #CBD5E1; display: flex; align-items: center; gap: 10px; }
-        .index-item i { font-size: 14px; opacity: 0.8; width: 16px; text-align: center; }
+        .index-group { font-size: 11px; font-weight: 700; color: #94A3B8; margin-top: 15px; margin-bottom: 8px; padding-left: 12px; text-transform: uppercase; letter-spacing: 1.5px; }
+        .index-item { padding: 8px 12px; margin-bottom: 3px; border-radius: 8px; cursor: pointer; font-size: 12.5px; font-weight: 500; transition: all 0.2s ease; color: #CBD5E1; display: flex; align-items: center; gap: 8px; }
+        .index-item i { font-size: 13px; opacity: 0.8; width: 16px; text-align: center; }
         .index-item:hover { background-color: rgba(255,255,255,0.08); color: white; transform: translateX(4px); }
         .index-item.active-nav { background-color: var(--blue-primary); color: white; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); font-weight: 600; }
-        .sub-item { padding-left: 30px; font-size: 12.5px; }
+        .sub-item { padding-left: 28px; font-size: 12px; }
 
         /* Área Principal de Slides */
-        #presentation-container { width: calc(100% - var(--sidebar-width)); height: 100%; position: relative; background-image: radial-gradient(#E2E8F0 1px, transparent 1px); background-size: 24px 24px; }
+        #presentation-container { width: calc(100% - var(--sidebar-width)); height: 100%; position: relative; background-image: radial-gradient(#E2E8F0 1px, transparent 1px); background-size: 24px 24px; overflow: hidden; }
         .slide {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            padding: 40px 60px; opacity: 0; visibility: hidden;
+            padding: 25px 45px; opacity: 0; visibility: hidden;
             transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s;
             display: flex; flex-direction: column; background: rgba(248, 250, 252, 0.95);
             backdrop-filter: blur(8px);
-            overflow-y: auto;
+            overflow: hidden; /* Força ausência de scroll */
         }
         .slide.active { opacity: 1; visibility: visible; }
 
         /* Tipografia e Logos */
-        .logo-mini { position: absolute; top: 30px; right: 60px; width: 130px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05)); }
-        h1 { color: var(--blue-secondary); font-size: 56px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; }
-        h2 { color: var(--blue-secondary); font-size: 32px; font-weight: 800; letter-spacing: -1px; margin-bottom: 25px; display: flex; align-items: center; gap: 12px; }
-        h2::before { content: ''; display: block; width: 8px; height: 36px; background: var(--blue-primary); border-radius: 4px; }
+        .logo-mini { position: absolute; top: 25px; right: 45px; width: 110px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05)); }
+        h1 { color: var(--blue-secondary); font-size: 52px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 15px; }
+        h2 { color: var(--blue-secondary); font-size: 28px; font-weight: 800; letter-spacing: -1px; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+        h2::before { content: ''; display: block; width: 8px; height: 32px; background: var(--blue-primary); border-radius: 4px; }
         .slide-cover { justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #ffffff 0%, #E0E7FF 100%); }
         .slide-cover h2::before { display: none; }
-        .logo-cover { width: 380px; margin-bottom: 40px; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.1)); }
+        .logo-cover { width: 340px; margin-bottom: 30px; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.1)); }
 
         /* Overview Grid Visão Geral */
-        .roadmap-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; flex: 1; margin-bottom: 60px; }
-        .roadmap-col { background: white; border-radius: 20px; padding: 20px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px -5px rgba(0,0,0,0.03); display: flex; flex-direction: column; gap: 10px; position: relative; overflow-y: auto; max-height: calc(100vh - 200px); }
-        .roadmap-col::-webkit-scrollbar { width: 4px; }
-        .roadmap-col::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
-        .col-header { text-align: center; font-size: 16px; font-weight: 800; padding-bottom: 15px; margin-bottom: 10px; border-bottom: 2px dashed var(--card-border); }
+        .roadmap-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; height: calc(100vh - 120px); }
+        .roadmap-col { background: white; border-radius: 16px; padding: 15px; border: 1px solid var(--card-border); box-shadow: 0 4px 20px -5px rgba(0,0,0,0.03); display: flex; flex-direction: column; gap: 8px; }
+        .col-header { text-align: center; font-size: 15px; font-weight: 800; padding-bottom: 12px; margin-bottom: 5px; border-bottom: 2px dashed var(--card-border); }
         .col-1 .col-header { color: var(--sem1-color); }
         .col-2 .col-header { color: var(--sem2-color); }
         .col-3 .col-header { color: var(--sem3-color); }
         .col-4 .col-header { color: var(--sem4-color); }
 
-        /* Nodes (Visão Geral) */
-        .node { background: var(--bg-page); border: 1px solid var(--card-border); border-radius: 10px; padding: 12px; text-align: left; font-size: 12px; font-weight: 600; color: var(--blue-secondary); transition: transform 0.2s ease; display: flex; align-items: center; gap: 10px; }
-        .node:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .node { background: var(--bg-page); border: 1px solid var(--card-border); border-radius: 8px; padding: 10px 12px; text-align: left; font-size: 11.5px; font-weight: 600; color: var(--blue-secondary); transition: transform 0.2s ease; display: flex; align-items: center; gap: 8px; }
         .node-purple { border-left: 4px solid var(--sem1-color); background: var(--sem1-bg); }
         .node-yellow { border-left: 4px solid var(--sem2-color); background: var(--sem2-bg); }
         .node-blue { border-left: 4px solid var(--sem3-color); background: var(--sem3-bg); }
         .node-red { border-left: 4px solid var(--sem4-color); background: var(--sem4-bg); }
-        .node i { font-size: 14px; opacity: 0.8; width: 16px; text-align: center; }
 
-        /* Layout Detail */
-        .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; flex: 1; margin-bottom: 60px; }
-        .detail-card { background: white; border-radius: 20px; padding: 40px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px -5px rgba(0,0,0,0.03); display: flex; flex-direction: column; gap: 20px; }
+        /* LAYOUT ATUALIZADO: COLUNA ESQUERDA MAIS LARGA, MAIS RESPIRO */
+        .detail-grid { display: grid; grid-template-columns: 360px 1fr; gap: 30px; height: calc(100vh - 140px); margin-bottom: 0; }
         
-        .detail-card-updated { padding: 40px; gap: 20px; overflow-y: auto;}
-        .detail-card-updated::-webkit-scrollbar { width: 6px; }
-        .detail-card-updated::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
-        .detail-card-updated h3 { font-size: 28px; letter-spacing: -0.5px; }
-        .detail-card-updated p { font-size: 16px; line-height: 1.6; color: var(--blue-secondary); }
+        /* Coluna da Esquerda: Dados Rápidos e Ícone Menor */
+        .meta-column { display: flex; flex-direction: column; gap: 20px; height: 100%; }
+        .meta-card { background: white; border-radius: 16px; padding: 25px; border: 1px solid var(--card-border); box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
         
-        /* Lista de Informações (Campos) */
-        .feature-cards-list { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-top: 10px; }
-        .feature-cards-list li { background: #ffffff; border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; display: flex; align-items: flex-start; gap: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .feature-cards-list li:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.04); }
-        
-        .feature-icon-wrapper { font-size: 22px; width: 48px; height: 48px; border-radius: 12px; background: var(--bg-page); display: flex; align-items: center; justify-content: center; color: var(--blue-primary); flex-shrink: 0; }
-        .feature-text-wrapper { display: flex; flex-direction: column; gap: 6px; width: 100%; }
-        .feature-cards-list li strong { font-size: 16px; color: var(--blue-secondary); font-weight: 700; }
-        .feature-cards-list li span { font-size: 14px; color: var(--text-gray); font-weight: 400; line-height: 1.5; background: #F1F5F9; padding: 8px 12px; border-radius: 6px; border: 1px dashed #CBD5E1; display: inline-block; width: 100%; min-height: 38px; }
+        .feature-cards-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+        .feature-cards-list li { display: flex; align-items: flex-start; gap: 12px; }
+        .feature-icon-wrapper { font-size: 18px; width: 38px; height: 38px; border-radius: 8px; background: var(--bg-page); display: flex; align-items: center; justify-content: center; color: var(--blue-primary); flex-shrink: 0; }
+        .feature-text-wrapper { display: flex; flex-direction: column; width: 100%; }
+        .feature-cards-list li strong { font-size: 15px; color: var(--blue-secondary); font-weight: 800; margin-bottom: 5px;}
+        .feature-cards-list li span { font-size: 14px; color: var(--text-gray); font-weight: 500; line-height: 1.5; background: #F1F5F9; padding: 10px 12px; border-radius: 6px; border: 1px dashed #CBD5E1; display: inline-block; width: 100%; }
 
-        /* Coluna da Direita Visual */
-        .detail-visual-col { display: flex; align-items: center; justify-content: center; background: white; border-radius: 20px; border: 1px dashed var(--card-border); flex-direction: column; padding: 40px; text-align: center; }
-        .detail-visual-col i { font-size: 120px; margin-bottom: 30px; opacity: 0.9; }
-        .detail-visual-col h3 { font-size: 28px; font-weight: 800; color: var(--blue-secondary); }
+        .visual-card { background: white; border-radius: 16px; border: 1px dashed var(--card-border); flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .visual-card i { font-size: 55px; margin-bottom: 18px; opacity: 0.9; }
+        .visual-card h3 { font-size: 22px; font-weight: 800; color: var(--blue-secondary); }
 
-        /* Controles Inferiores */
-        .controls { position: fixed; bottom: 30px; right: 60px; display: flex; gap: 15px; z-index: 100; background: rgba(255,255,255,0.8); padding: 10px; border-radius: 50px; backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid var(--card-border); }
-        .control-btn { background-color: white; color: var(--text-dark); border: 1px solid var(--card-border); padding: 12px 24px; border-radius: 50px; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: all 0.2s ease; }
+        /* Coluna da Direita: Texto do Processo com FONTE MAIOR e ocupando melhor o espaço */
+        .text-column { background: white; border-radius: 16px; padding: 30px 40px; border: 1px solid var(--card-border); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; flex-direction: column; }
+        .text-header { font-size: 22px; font-weight: 800; margin-bottom: 18px; padding-bottom: 15px; border-bottom: 1px solid var(--card-border); display: flex; align-items: center; gap: 10px; }
+        
+        .proc-content { flex: 1; font-size: 16px; line-height: 1.65; color: var(--blue-secondary); }
+        .proc-content p { margin-bottom: 14px; }
+        .proc-content ul { padding-left: 20px; margin-bottom: 14px; }
+        .proc-content li { margin-bottom: 6px; }
+
+        /* Controles Inferiores Corrigidos (absolute p/ não ficar sob o menu) */
+        .controls { position: absolute; bottom: 25px; right: 45px; display: flex; gap: 15px; z-index: 100; background: rgba(255,255,255,0.85); padding: 8px; border-radius: 50px; backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 1px solid var(--card-border); }
+        .control-btn { background-color: white; color: var(--text-dark); border: 1px solid var(--card-border); padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s ease; }
         .control-btn:hover:not(:disabled) { background-color: var(--blue-primary); color: white; border-color: var(--blue-primary); transform: translateY(-2px); }
         .control-btn:disabled { background-color: var(--neutral-bg); border-color: var(--card-border); color: #94A3B8; cursor: not-allowed; transform: none; }
+        
+        a { color: var(--blue-primary); text-decoration: none; font-weight: 600; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -147,19 +144,17 @@
 
         <div class="slide slide-cover active" id="slide-0">
             <img src="https://i.ibb.co/YFRS0XGF/oie-transparent.png" alt="Contele Teams Logo" class="logo-cover">
-            <h1>Manual de Funções e Procedimentos</h1>
-            <p style="font-size: 24px; color: var(--text-gray); font-weight: 500;">Estrutura Organizacional e Mapeamento de Processos</p>
+            <h1>Manual de Funções e Processos</h1>
+            <p style="font-size: 22px; color: var(--text-gray); font-weight: 500;">Estrutura Organizacional e Mapeamento de Atividades</p>
         </div>
 
         <div class="slide" id="slide-1">
             <img src="https://i.ibb.co/YFRS0XGF/oie-transparent.png" alt="Contele" class="logo-mini">
-            <h2><i class="fa-solid fa-sitemap"></i> Índice de Procedimentos</h2>
+            <h2><i class="fa-solid fa-sitemap"></i> Índice de Processos</h2>
             <div class="roadmap-container">
                 <div class="roadmap-col col-1">
                     <div class="col-header">Produto & Inovação</div>
                     <div class="node node-purple"><i class="fa-solid fa-lightbulb"></i> Debate de Ideias</div>
-                    <div class="node node-purple"><i class="fa-solid fa-pen-ruler"></i> Design de Solução - Projetos</div>
-                    <div class="node node-purple"><i class="fa-solid fa-list-check"></i> Backlog - Produto</div>
                     <div class="node node-purple"><i class="fa-solid fa-gem"></i> Refinamento de Produto</div>
                     <div class="node node-purple"><i class="fa-solid fa-code-branch"></i> Histórias para Desenvolvimento</div>
                     <div class="node node-purple"><i class="fa-solid fa-map-location-dot"></i> Roadmap</div>
@@ -169,11 +164,9 @@
 
                 <div class="roadmap-col col-2">
                     <div class="col-header">Projetos & CS</div>
-                    <div class="node node-yellow"><i class="fa-solid fa-ticket"></i> Análise de Tickets de Usabilidade</div>
+                    <div class="node node-yellow"><i class="fa-solid fa-ticket"></i> Gestão de Usabilidade</div>
                     <div class="node node-yellow"><i class="fa-solid fa-project-diagram"></i> Tickets de Projetos</div>
                     <div class="node node-yellow"><i class="fa-solid fa-graduation-cap"></i> Treinamentos CS</div>
-                    <div class="node node-yellow"><i class="fa-solid fa-users-viewfinder"></i> Onboarding Equipe (Produto)</div>
-                    <div class="node node-yellow"><i class="fa-solid fa-building-circle-arrow-right"></i> Projetos Grandes Contas</div>
                     <div class="node node-yellow"><i class="fa-solid fa-puzzle-piece"></i> Soluções e Projetos</div>
                     <div class="node node-yellow"><i class="fa-solid fa-user-xmark"></i> Análise de Cancelamentos</div>
                     <div class="node node-yellow"><i class="fa-solid fa-circle-question"></i> Atualização de Central de Ajuda</div>
@@ -181,25 +174,19 @@
 
                 <div class="roadmap-col col-3">
                     <div class="col-header">Gestão & Integrações</div>
-                    <div class="node node-blue"><i class="fa-solid fa-robot"></i> Integrações e Automações</div>
-                    <div class="node node-blue"><i class="fa-solid fa-file-pen"></i> Atualização de Procedimentos</div>
+                    <div class="node node-blue"><i class="fa-solid fa-file-pen"></i> Atualização de Processos</div>
                     <div class="node node-blue"><i class="fa-solid fa-key"></i> Gerenciamento de Acessos</div>
                     <div class="node node-blue"><i class="fa-solid fa-calendar-day"></i> Daily Teams</div>
-                    <div class="node node-blue"><i class="fa-solid fa-server"></i> Gerenciamento Sumo</div>
                     <div class="node node-blue"><i class="fa-solid fa-check-double"></i> Softwares Homologados</div>
                     <div class="node node-blue"><i class="fa-solid fa-people-arrows"></i> Colaboração entre Setores</div>
                 </div>
 
                 <div class="roadmap-col col-4">
                     <div class="col-header">Estratégia & Comercial</div>
-                    <div class="node node-red"><i class="fa-solid fa-chart-simple"></i> Looker Studio</div>
                     <div class="node node-red"><i class="fa-solid fa-star-half-stroke"></i> Avaliações Públicas</div>
                     <div class="node node-red"><i class="fa-solid fa-file-signature"></i> Propostas Comerciais</div>
-                    <div class="node node-red"><i class="fa-solid fa-clipboard-user"></i> Autoavaliações (CS e Projetos)</div>
+                    <div class="node node-red"><i class="fa-solid fa-clipboard-user"></i> Avaliações (CS e Produto)</div>
                     <div class="node node-red"><i class="fa-solid fa-handshake"></i> Equipe Comercial - Apoio</div>
-                    <div class="node node-red"><i class="fa-solid fa-person-chalkboard"></i> Apresentações Comerciais</div>
-                    <div class="node node-red"><i class="fa-solid fa-tags"></i> Precificação de Projetos</div>
-                    <div class="node node-red"><i class="fa-solid fa-chart-pie"></i> Dados e Indicadores</div>
                 </div>
             </div>
         </div>
@@ -208,35 +195,68 @@
             <img src="https://i.ibb.co/YFRS0XGF/oie-transparent.png" alt="Contele" class="logo-mini">
             <h2><i class="fa-solid fa-lightbulb"></i> Debate de Ideias</h2>
             <div class="detail-grid">
-                <div class="detail-card detail-card-updated" style="border-left: 6px solid var(--sem1-color);">
-                    <h3 style="color: var(--sem1-color);">Diretrizes da Atividade</h3>
-                    <p>Espaço reservado para o mapeamento da função <strong>Debate de Ideias</strong>.</p>
-                    <ul class="feature-cards-list">
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>[Definir Responsável]</span></div></li>
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>[Definir Participantes]</span></div></li>
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>[Definir Periodicidade]</span></div></li>
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-align-left"></i></div><div class="feature-text-wrapper"><strong>Procedimento</strong><span>[Descrever o passo a passo da atividade em momento oportuno]</span></div></li>
-                    </ul>
+                <div class="meta-column">
+                    <div class="meta-card" style="border-left: 5px solid var(--sem1-color);">
+                        <ul class="feature-cards-list">
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>Responsável pelo setor de Produto.</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>CEO, equipe de Tecnologia e convidados.</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Semanal, quartas-feiras, pela manhã.</span></div></li>
+                        </ul>
+                    </div>
+                    <div class="visual-card">
+                        <i class="fa-solid fa-lightbulb" style="color: var(--sem1-color);"></i>
+                        <h3 style="color: var(--sem1-color);">Debate de Ideias</h3>
+                    </div>
                 </div>
-                <div class="detail-visual-col"><i class="fa-solid fa-lightbulb" style="color: var(--sem1-color);"></i><h3>Debate de Ideias</h3></div>
+                
+                <div class="text-column" style="border-top: 5px solid var(--sem1-color);">
+                    <div class="text-header" style="color: var(--sem1-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
+                    <div class="proc-content">
+                        <p>O Debate de Ideias faz parte das atividades de Produto aplicadas ao desenvolvimento do sistema Contele Teams. Ocorrerá todas às quartas-feiras, no período da manhã, na reunião semanal conduzida pelo responsável pelo setor de Produto.</p>
+                        <p>As ideias são registradas em formulário disponível na Web Teams, de livre preenchimento por clientes e colaboradores da Contele. Após o registro, as ideias ficam disponíveis em cards no Kanban: Gestão de Ideias - Contele Teams | Ideias | Notion.</p>
+                        <p><strong>As colunas são:</strong></p>
+                        <ul style="column-count: 2; column-gap: 20px;">
+                            <li><strong>TRIAGEM:</strong> Novas ideias não analisadas.</li>
+                            <li><strong>STAND-BY:</strong> Aguardam validações do cliente.</li>
+                            <li><strong>REFINAMENTO:</strong> Exige estudo de viabilidade.</li>
+                            <li><strong>APP TEAMS:</strong> Projeto para o App Teams.</li>
+                            <li><strong>WEB TEAMS:</strong> Projeto para a Web Teams.</li>
+                            <li><strong>WIP (DEV):</strong> Em desenvolvimento (TI).</li>
+                            <li><strong>NOTIF. CLIENTE:</strong> Pendente notificar a entrega.</li>
+                            <li><strong>CONCLUÍDO:</strong> Etapas entregues.</li>
+                            <li><strong>ARQUIVADO:</strong> Projeto inviável.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="slide" id="slide-3">
             <img src="https://i.ibb.co/YFRS0XGF/oie-transparent.png" alt="Contele" class="logo-mini">
-            <h2><i class="fa-solid fa-ticket"></i> Análise de Tickets de Usabilidade</h2>
+            <h2><i class="fa-solid fa-ticket"></i> Gestão de Usabilidade</h2>
             <div class="detail-grid">
-                <div class="detail-card detail-card-updated" style="border-left: 6px solid var(--sem2-color);">
-                    <h3 style="color: var(--sem2-color);">Diretrizes da Atividade</h3>
-                    <p>Espaço reservado para o mapeamento da função <strong>Análise de Tickets de Usabilidade</strong>.</p>
-                    <ul class="feature-cards-list">
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>[Definir Responsável]</span></div></li>
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>[Definir Participantes]</span></div></li>
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>[Definir Periodicidade]</span></div></li>
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-align-left"></i></div><div class="feature-text-wrapper"><strong>Procedimento</strong><span>[Descrever o passo a passo da atividade em momento oportuno]</span></div></li>
-                    </ul>
+                <div class="meta-column">
+                    <div class="meta-card" style="border-left: 5px solid var(--sem2-color);">
+                        <ul class="feature-cards-list">
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>Responsável pelo setor de Produto (P.O.).</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Setor de Produto, Sustentação e CEO.</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Semanal, às quartas-feiras.</span></div></li>
+                        </ul>
+                    </div>
+                    <div class="visual-card">
+                        <i class="fa-solid fa-ticket" style="color: var(--sem2-color);"></i>
+                        <h3 style="color: var(--sem2-color);">Gestão de Usabilidade</h3>
+                    </div>
                 </div>
-                <div class="detail-visual-col"><i class="fa-solid fa-ticket" style="color: var(--sem2-color);"></i><h3>Análise de Tickets</h3></div>
+                
+                <div class="text-column" style="border-top: 5px solid var(--sem2-color);">
+                    <div class="text-header" style="color: var(--sem2-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
+                    <div class="proc-content">
+                        <p>A Gestão de Usabilidade faz parte das atividades de Produto aplicadas ao desenvolvimento do sistema Contele Teams. Tem como objetivo identificar, analisar e tratar dificuldades de uso enfrentadas pelos clientes, promovendo melhorias contínuas na experiência de utilização do sistema.</p>
+                        <p>As questões de usabilidade têm origem nos tickets encaminhados à Sustentação, nos quais são identificadas as dificuldades e os pontos de atrito relatados pelos clientes durante o uso do Contele Teams. A partir dessa identificação, cada situação de usabilidade é registrada como um card em board próprio de Usabilidade no Notion, onde os itens ficam organizados e disponíveis para análise.</p>
+                        <p>Semanalmente, em reunião fixa às quartas-feiras, o P.O., em conjunto com a Sustentação e o CEO, revisa os cards registrados, avalia a relevância e a recorrência de cada questão e define os encaminhamentos necessários, priorizando as melhorias de usabilidade a serem incorporadas ao sistema.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -244,17 +264,28 @@
             <img src="https://i.ibb.co/YFRS0XGF/oie-transparent.png" alt="Contele" class="logo-mini">
             <h2><i class="fa-solid fa-project-diagram"></i> Tickets de Projetos</h2>
             <div class="detail-grid">
-                <div class="detail-card detail-card-updated" style="border-left: 6px solid var(--sem3-color);">
-                    <h3 style="color: var(--sem3-color);">Diretrizes da Atividade</h3>
-                    <p>Espaço reservado para o mapeamento da função <strong>Tickets de Projetos</strong>.</p>
-                    <ul class="feature-cards-list">
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>[Definir Responsável]</span></div></li>
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>[Definir Participantes]</span></div></li>
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>[Definir Periodicidade]</span></div></li>
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-align-left"></i></div><div class="feature-text-wrapper"><strong>Procedimento</strong><span>[Descrever o passo a passo da atividade em momento oportuno]</span></div></li>
-                    </ul>
+                <div class="meta-column">
+                    <div class="meta-card" style="border-left: 5px solid var(--sem3-color);">
+                        <ul class="feature-cards-list">
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>Time de IA e Projetos.</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Setor de Produto e Time de Projetos.</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Sob demanda.</span></div></li>
+                        </ul>
+                    </div>
+                    <div class="visual-card">
+                        <i class="fa-solid fa-project-diagram" style="color: var(--sem3-color);"></i>
+                        <h3 style="color: var(--sem3-color);">Tickets de Projetos</h3>
+                    </div>
                 </div>
-                <div class="detail-visual-col"><i class="fa-solid fa-project-diagram" style="color: var(--sem3-color);"></i><h3>Tickets de Projetos</h3></div>
+                
+                <div class="text-column" style="border-top: 5px solid var(--sem3-color);">
+                    <div class="text-header" style="color: var(--sem3-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
+                    <div class="proc-content">
+                        <p>Os Tickets de Projetos fazem parte das atividades de Produto aplicadas ao desenvolvimento do sistema Contele Teams. Referem-se às demandas de integrações, automações e projetos com Inteligência Artificial que, por sua natureza, não são tratadas como evoluções diretas no sistema, sendo conduzidas pela equipe de Projetos/IA.</p>
+                        <p>Os tickets de projetos são registrados e geridos no sistema Contele OS, disponível em <a href="https://os.contele.io/painel/projetos" target="_blank">https://os.contele.io/painel/projetos</a>, onde ficam concentradas as demandas dessa natureza e o acompanhamento de sua execução.</p>
+                        <p>Nos casos em que há envolvimento de Produto, o fluxo tem início a partir das reuniões e alinhamentos conduzidos pelo P.O. junto ao cliente. Quando o P.O. avalia que a demanda não deve, naquele momento, ser atendida por meio de desenvolvimento no sistema, é desenhada a solução adequada e o projeto é escalado para a equipe de Projetos/IA, que passa a conduzir sua execução por meio do Contele OS.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -262,72 +293,130 @@
             <img src="https://i.ibb.co/YFRS0XGF/oie-transparent.png" alt="Contele" class="logo-mini">
             <h2><i class="fa-solid fa-graduation-cap"></i> Treinamentos CS</h2>
             <div class="detail-grid">
-                <div class="detail-card detail-card-updated" style="border-left: 6px solid var(--sem4-color);">
-                    <h3 style="color: var(--sem4-color);">Diretrizes da Atividade</h3>
-                    <p>Espaço reservado para o mapeamento da função <strong>Treinamentos CS</strong>.</p>
-                    <ul class="feature-cards-list">
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>[Definir Responsável]</span></div></li>
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>[Definir Participantes]</span></div></li>
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>[Definir Periodicidade]</span></div></li>
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-align-left"></i></div><div class="feature-text-wrapper"><strong>Procedimento</strong><span>[Descrever o passo a passo da atividade em momento oportuno]</span></div></li>
-                    </ul>
+                <div class="meta-column">
+                    <div class="meta-card" style="border-left: 5px solid var(--sem4-color);">
+                        <ul class="feature-cards-list">
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>Resp. por Produto e Liderança de CS.</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Novo colaborador de CS e equipe.</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Sob demanda (duração até 15 dias).</span></div></li>
+                        </ul>
+                    </div>
+                    <div class="visual-card">
+                        <i class="fa-solid fa-graduation-cap" style="color: var(--sem4-color);"></i>
+                        <h3 style="color: var(--sem4-color);">Treinamentos CS</h3>
+                    </div>
                 </div>
-                <div class="detail-visual-col"><i class="fa-solid fa-graduation-cap" style="color: var(--sem4-color);"></i><h3>Treinamentos CS</h3></div>
-            </div>
-        </div>
-
-        <div class="slide" id="slide-6">
-            <img src="https://i.ibb.co/YFRS0XGF/oie-transparent.png" alt="Contele" class="logo-mini">
-            <h2><i class="fa-solid fa-robot"></i> Integrações e Automações</h2>
-            <div class="detail-grid">
-                <div class="detail-card detail-card-updated" style="border-left: 6px solid var(--sem1-color);">
-                    <h3 style="color: var(--sem1-color);">Diretrizes da Atividade</h3>
-                    <p>Espaço reservado para o mapeamento da função <strong>Integrações e Automações</strong>.</p>
-                    <ul class="feature-cards-list">
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>[Definir Responsável]</span></div></li>
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>[Definir Participantes]</span></div></li>
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>[Definir Periodicidade]</span></div></li>
-                        <li><div class="feature-icon-wrapper"><i class="fa-solid fa-align-left"></i></div><div class="feature-text-wrapper"><strong>Procedimento</strong><span>[Descrever o passo a passo da atividade em momento oportuno]</span></div></li>
-                    </ul>
+                
+                <div class="text-column" style="border-top: 5px solid var(--sem4-color);">
+                    <div class="text-header" style="color: var(--sem4-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
+                    <div class="proc-content">
+                        <p>O Treinamento e Onboarding de Customer Success faz parte das atividades de Produto aplicadas ao desenvolvimento do sistema Contele Teams. Ocorre sempre que há a entrada de um novo colaborador no setor de Customer Success (CS), visando capacitá-lo sobre o sistema, processos e rotinas operacionais da equipe Contele Teams.</p>
+                        <p>A condução do treinamento é feita por meio de uma combinação de formatos, garantindo a absorção técnica e prática das ferramentas e rotinas.</p>
+                        <p><strong>O processo abrange as seguintes frentes de aprendizado:</strong></p>
+                        <ul>
+                            <li><strong>Sessões ao vivo:</strong> Reuniões para introdução, alinhamentos e dúvidas.</li>
+                            <li><strong>Gravações/vídeos:</strong> Consumo de materiais gravados que demonstram as funcionalidades.</li>
+                            <li><strong>Documentação:</strong> Estudo de processos, manuais e guias organizados no Notion.</li>
+                            <li><strong>Shadowing:</strong> Acompanhamento prático da rotina de outro membro experiente do CS.</li>
+                        </ul>
+                        <p><strong>Acesso:</strong> <a href="https://produto-contele.github.io/treinamento-onboarding/" target="_blank">Central de Treinamento</a></p>
+                    </div>
                 </div>
-                <div class="detail-visual-col"><i class="fa-solid fa-robot" style="color: var(--sem1-color);"></i><h3>Integrações</h3></div>
             </div>
         </div>
 
         <script>
-            // Array com os dados restantes para gerar via JS e manter o arquivo mais limpo e leve, 
-            // cumprindo a regra de "Não resuma o JS" e "Arquivo pronto para uso"
+            // Array com os dados restantes para gerar via JS
             const funcoes = [
-                { nome: "Looker Studio", icone: "fa-chart-simple", cor: "sem2" },
-                { nome: "Atualização de Procedimentos", icone: "fa-file-pen", cor: "sem3" },
-                { nome: "Gerenciamento de Acessos", icone: "fa-key", cor: "sem4" },
-                { nome: "Aplicação do Changelog", icone: "fa-clipboard-list", cor: "sem1" },
-                { nome: "Atualização de Central de Ajuda", icone: "fa-circle-question", cor: "sem2" },
-                { nome: "Onboarding Equipe (Produto)", icone: "fa-users-viewfinder", cor: "sem3" },
-                { nome: "Projetos Grandes Contas", icone: "fa-building-circle-arrow-right", cor: "sem4" },
-                { nome: "Roadmap", icone: "fa-map-location-dot", cor: "sem1" },
-                { nome: "Daily Teams", icone: "fa-calendar-day", cor: "sem2" },
-                { nome: "Avaliações Públicas - Contele Teams", icone: "fa-star-half-stroke", cor: "sem3" },
-                { nome: "Propostas Comerciais", icone: "fa-file-signature", cor: "sem4" },
-                { nome: "Soluções e Projetos", icone: "fa-puzzle-piece", cor: "sem1" },
-                { nome: "Design de Solução - Projetos", icone: "fa-pen-ruler", cor: "sem2" },
-                { nome: "Backlog - Produto", icone: "fa-list-check", cor: "sem3" },
-                { nome: "Autoavaliações (CS e Projetos)", icone: "fa-clipboard-user", cor: "sem4" },
-                { nome: "Equipe Comercial - Apoio", icone: "fa-handshake", cor: "sem1" },
-                { nome: "Apresentações Comerciais (Produto)", icone: "fa-person-chalkboard", cor: "sem2" },
-                { nome: "Refinamento de Produto", icone: "fa-gem", cor: "sem3" },
-                { nome: "Histórias para Desenvolvimento", icone: "fa-code-branch", cor: "sem4" },
-                { nome: "Gerenciamento Sumo", icone: "fa-server", cor: "sem1" },
-                { nome: "Softwares Homologados", icone: "fa-check-double", cor: "sem2" },
-                { nome: "Colaboração entre Setores", icone: "fa-people-arrows", cor: "sem3" },
-                { nome: "Design e Melhorias Contele Teams", icone: "fa-wand-magic-sparkles", cor: "sem4" },
-                { nome: "Precificação de Projetos", icone: "fa-tags", cor: "sem1" },
-                { nome: "Análise de Cancelamentos", icone: "fa-user-xmark", cor: "sem2" },
-                { nome: "Dados e Indicadores", icone: "fa-chart-pie", cor: "sem3" }
+                { 
+                    nome: "Refinamento de Produto", icone: "fa-gem", cor: "sem1",
+                    responsavel: "Responsável pelo setor de Produto / P.O.", participantes: "CEO, designers e equipe de Tecnologia.", periodicidade: "Contínua / sob demanda, conforme necessidade.",
+                    processo: `<p>O Refinamento de Produto faz parte das etapas de design e desenvolvimento aplicadas ao sistema Contele Teams. Consiste no refinamento das histórias de produto para que sejam adequadamente preparadas e encaminhadas ao desenvolvimento, assegurando que cada demanda esteja completa e clara antes de sua implementação.</p><p>As histórias a serem refinadas ficam registradas em issues no Kanban de desenvolvimento, disponível em <a href="https://github.com/orgs/contele/projects/58" target="_blank">GitHub Projects</a>. O responsável pelo setor de Produto / P.O. conduz o refinamento de cada história, podendo contar com o envolvimento do CEO, dos designers e da equipe técnica ao longo do processo.</p><p>As histórias que passam por refinamento não devem ser vinculadas a etapa "To Do", que indica que a história já está pronta para desenvolvimento.</p>`
+                },
+                { 
+                    nome: "Histórias para Desenvolvimento", icone: "fa-code-branch", cor: "sem1",
+                    responsavel: "Setor de Produto.", participantes: "Designer e desenvolvedores.", periodicidade: "Contínua / sob demanda.",
+                    processo: `<p>A Escrita de Histórias faz parte das atividades de Produto. Consiste na criação e refinamento das histórias que orientarão a implementação de novas funcionalidades.</p><p>As histórias são escritas no GitHub. A redação segue o padrão "Como [perfil], quero [objetivo], para [finalidade]".</p><p><strong>As colunas do Kanban de Desenvolvimento são:</strong></p><ul><li><strong>No Status:</strong> Itens sem classificação.</li><li><strong>Entrada:</strong> Novas histórias no fluxo.</li><li><strong>Design de Solução:</strong> Histórias em etapa de design.</li><li><strong>Projetos (Épico):</strong> Agrupamento em projetos maiores.</li><li><strong>Pronto para DEV:</strong> Prontas para serem desenvolvidas.</li><li><strong>Pronto p/ DEV (Sustentação):</strong> Relacionadas à sustentação.</li><li><strong>To do:</strong> Desenvolvedor assumiu a história.</li></ul>`
+                },
+                { 
+                    nome: "Roadmap", icone: "fa-map-location-dot", cor: "sem1",
+                    responsavel: "Responsável pelo setor de Produto.", participantes: "CEO e equipe de Tecnologia.", periodicidade: "Revisão semestral (a cada 6 meses).",
+                    processo: `<p>O Roadmap faz parte das atividades de Produto aplicadas ao desenvolvimento do sistema. Consiste no planejamento estratégico que projeta a evolução para os próximos 2 anos, organizando as iniciativas previstas e orientando as prioridades de desenvolvimento.</p><p><strong>O Roadmap é estruturado da seguinte forma:</strong></p><ul><li><strong>SEMESTRE 1:</strong> Iniciativas previstas para o semestre corrente.</li><li><strong>SEMESTRE 2:</strong> Iniciativas planejadas para o semestre seguinte.</li><li><strong>SEMESTRE 3:</strong> Iniciativas projetadas para o terceiro semestre.</li><li><strong>SEMESTRE 4:</strong> Iniciativas projetadas para o quarto semestre, encerrando o horizonte de 2 anos.</li></ul><p><strong>Acesso Direto:</strong> <a href="https://app.notion.com/p/conteleoficial/Roadmap-2026-2027-Contele-Teams-b62e8069180243ecaaf2e72dec9531f8" target="_blank">Acessar o Roadmap</a></p>`
+                },
+                { 
+                    nome: "Design e Melhorias", icone: "fa-wand-magic-sparkles", cor: "sem1",
+                    responsavel: "Responsável pelo setor de Produto.", participantes: "Designer.", periodicidade: "Reunião semanal, às segundas (16h às 16h30).",
+                    processo: `<p>O Design e Melhorias faz parte das atividades de Produto aplicadas ao desenvolvimento. Consiste na condução das melhorias em conjunto com o designer, desde a identificação até a validação das soluções.</p><p>As melhorias são tratadas em reunião oficial semanal. Toda melhoria apresentada deve possuir história escrita, recebendo a label/etiqueta "Design" no GitHub. A plataforma oficial utilizada pelo designer é o Figma.</p><p><strong>As melhorias devem ter origem em:</strong></p><ul><li><strong>SOLICITAÇÕES:</strong> Demandas levantadas pelos clientes.</li><li><strong>IDEIAS DEBATIDAS:</strong> Originadas do processo de Debate de Ideias.</li><li><strong>PROJETOS JÁ CRIADOS:</strong> Adaptações e aprimoramentos.</li></ul>`
+                },
+                { 
+                    nome: "Aplicação do Changelog", icone: "fa-clipboard-list", cor: "sem1",
+                    responsavel: "Responsável pelo setor de Produto (P.O.).", participantes: "Produto, Desenvolvimento e Customer Success.", periodicidade: "A cada deploy/release publicado.",
+                    processo: `<p>A Aplicação do Changelog faz parte das atividades de Produto aplicadas ao desenvolvimento. Consiste na consolidação e divulgação das melhorias e correções entregues ao sistema, comunicando clientes e colaboradores.</p><p>As entradas do Changelog têm origem nas issues concluídas no GitHub Projects ("Feito na Semana"). O P.O. analisa e move para a etapa "Changelog" as que representam novidades relevantes. O conteúdo é formatado com apoio de I.A.</p><p>O Changelog é publicado no Web Teams (Novidades da Web), App Teams (seção Novidades) e no grupo de WhatsApp "Teams | Melhorias no Sistema".</p>`
+                },
+                { 
+                    nome: "Soluções e Projetos", icone: "fa-puzzle-piece", cor: "sem2",
+                    responsavel: "Responsável (Produto) e Líder técnico (Dev).", participantes: "Equipes de Produto e Desenvolvimento.", periodicidade: "Sob demanda.",
+                    processo: `<p>A estruturação de Soluções e Projetos faz parte das atividades de Produto aplicadas ao desenvolvimento do sistema Contele Teams.</p><p>A atividade tem como objetivo central estruturar e viabilizar tecnicamente os projetos especiais e as customizações solicitadas por clientes. Adicionalmente, abrange o detalhamento técnico e arquitetural de novas ideias, garantindo que estejam validadas antes do envio à esteira de Desenvolvimento.</p><p>Durante o processo, as equipes conduzem o levantamento de requisitos operacionais, avaliam os impactos no sistema e mapeiam as necessidades de engenharia. Todo o escopo é devidamente documentado gerando os insumos necessários nos cards e issues gerenciais.</p>`
+                },
+                { 
+                    nome: "Análise de Cancelamentos", icone: "fa-user-xmark", cor: "sem2",
+                    responsavel: "Responsável pelo setor de Produto.", participantes: "Equipe de Produto.", periodicidade: "Contínua / Individualizado a cada evento.",
+                    processo: `<p>A Análise de Cancelamentos faz parte das atividades de Produto aplicadas ao desenvolvimento do sistema Contele Teams.</p><p>A atividade tem como objetivo investigar e mapear os motivos técnicos e de usabilidade que levaram ao churn, identificando oportunidades diretas de melhoria. A cada evento de cancelamento, é realizada uma investigação sobre o uso da plataforma para compreender as dificuldades enfrentadas pelo cliente ou as limitações que motivaram a rescisão.</p><p>Essas análises são debatidas nas reuniões internas e documentadas em atas, servindo de base de conhecimento para direcionar o refinamento do sistema.</p><p><strong>Kanban:</strong> <a href="https://app.notion.com/p/conteleoficial/28432a1489f18046a49ef2c71d569855?v=28432a1489f1803999fd000c0df122d9" target="_blank">Acessar no Notion</a></p>`
+                },
+                { 
+                    nome: "Atualização de Central de Ajuda", icone: "fa-circle-question", cor: "sem2",
+                    responsavel: "Responsável pelo setor de Produto.", participantes: "Equipe de Produto.", periodicidade: "Sob demanda (lançamentos) e contínua (revisão).",
+                    processo: `<p>A Atualização de Central de Ajuda faz parte das atividades de Produto aplicadas ao desenvolvimento do sistema Contele Teams.</p><p>A rotina tem como objetivo garantir que a base de conhecimento do sistema permaneça precisa e alinhada com as versões mais recentes do software. A atualização é desencadeada sempre que ocorre o lançamento de novas funcionalidades, alterações no sistema ou correções de bugs relevantes que impactem a usabilidade.</p><p>Adicionalmente, abrange a revisão contínua dos artigos existentes, assegurando tutoriais corretos independentemente de novos lançamentos. A gestão é disponibilizada diretamente na Central de Ajuda.</p>`
+                },
+                { 
+                    nome: "Atualização de Processos", icone: "fa-file-pen", cor: "sem3",
+                    responsavel: "Responsável pelo setor de Produto.", participantes: "Atividade conduzida exclusivamente pelo P.O.", periodicidade: "Anual (1x por ano).",
+                    processo: `<p>A Atualização dos Processos faz parte das atividades de Produto aplicadas ao desenvolvimento do sistema. Consiste na revisão e na manutenção periódica dos processos mapeados, de modo a manter o Manual de Funções e Processos atualizado e alinhado às rotinas e práticas vigentes.</p><p>A revisão é realizada diretamente no formato do Manual. O responsável pelo setor de Produto analisa cada processo registrado, verifica sua aderência às rotinas atuais e promove os ajustes necessários, garantindo que o conteúdo permaneça completo e atualizado a cada ciclo anual.</p>`
+                },
+                { 
+                    nome: "Gerenciamento de Acessos", icone: "fa-key", cor: "sem3",
+                    responsavel: "Responsável pelo setor de Produto.", participantes: "Equipe de Produto.", periodicidade: "Sob demanda (entrada/saída ou cliente).",
+                    processo: `<p>A Gestão de Acessos faz parte das atividades de Produto aplicadas ao desenvolvimento do sistema Contele Teams.</p><p>A rotina engloba a administração de credenciais internas da equipe e o gerenciamento de permissões ou módulos especiais para clientes. O processo abrange a liberação e a revogação de acessos às ferramentas internas de trabalho (como GitHub, Notion, Figma) para os colaboradores.</p><p>Paralelamente, atende à liberação de permissões, módulos específicos ou funcionalidades em fase Beta diretamente para os usuários do sistema. As concessões ocorrem no painel administrativo e nas configurações nativas de cada ferramenta.</p>`
+                },
+                { 
+                    nome: "Daily Teams", icone: "fa-calendar-day", cor: "sem3",
+                    responsavel: "Líder técnico de Desenvolvimento.", participantes: "Devs, Produto e Design.", periodicidade: "Diária (seg à sex), das 10:30 às 10:45.",
+                    processo: `<p>A Daily Teams faz parte das atividades de Produto e reúne os setores de Desenvolvimento, Produto e Design para alinhamento diário. A escolha do apresentador é por sorteio ou livre atribuição. A equipe de Produto participa tirando dúvidas e propondo priorizações.</p><p><strong>Ordem da Apresentação:</strong></p><ul><li><strong>1ª parte:</strong> Resp. por Sustentação comenta novos casos abertos a partir de tickets de clientes.</li><li><strong>2ª parte:</strong> Desenvolvedores comentam SLAs da Sustentação no GitHub (somente os casos da semana).</li><li><strong>3ª parte:</strong> Desenvolvedores, Produto e Design comentam suas issues ativas (da esquerda para a direita no quadro: Aguardando Deploy, Validando, Aguardando Validação, Impedido e WIP).</li></ul>`
+                },
+                { 
+                    nome: "Softwares Homologados", icone: "fa-check-double", cor: "sem3",
+                    responsavel: "Responsável pelo setor de Produto.", participantes: "Equipe de Produto.", periodicidade: "Contínua.",
+                    processo: `<p>A Definição de Softwares Utilizados faz parte das atividades de Produto aplicadas ao desenvolvimento do sistema Contele Teams.</p><p>A atividade consiste na manutenção e atualização do ecossistema de ferramentas oficiais adotadas pelo setor para viabilizar as rotinas de documentação, gestão de projetos, prototipagem, testes de API e análise de dados. A padronização desse stack tecnológico garante a fluidez dos fluxos e a integração eficiente da equipe.</p><p><strong>Softwares do ecossistema:</strong> Github, Pipedrive, Notion, Figma, Google Docs/Forms/Sheets, Youtube, Contele Teams, Slack, Gemini, Claude, Chatwoot, Gmail, N8N, WhatsApp, Asana, Bit.ly, Canva, Changelogy, Google Agenda/Drive, Lastpass, Miro, RD Station, Vindi, Insomnia, Postman, Looker Studio (Data Studio) e Contele Fleet.</p>`
+                },
+                { 
+                    nome: "Colaboração entre Setores", icone: "fa-people-arrows", cor: "sem3",
+                    responsavel: "Responsável pelo setor de Produto (P.O.).", participantes: "Marketing, CS, Dev, Comercial, Sus, Fin, Adm.", periodicidade: "Contínua.",
+                    processo: `<p>A Colaboração entre Setores faz parte das atividades de Produto aplicadas ao desenvolvimento do sistema Contele Teams. Consiste na articulação contínua do setor de Produto com as demais áreas, assegurando o alinhamento de demandas a partir de diferentes perspectivas.</p><p>A colaboração tem como propósito central fornecer e alinhar melhorias, garantindo que as necessidades das áreas sejam consideradas. Cada setor contribui com percepções, dificuldades e oportunidades que subsidiam decisões de Produto.</p><p>Essa articulação ocorre por meio de reuniões pontuais, nas quais o P.O. atua como ponto de convergência entre as áreas, encaminhando soluções ao desenvolvimento.</p>`
+                },
+                { 
+                    nome: "Avaliações Públicas", icone: "fa-star-half-stroke", cor: "sem4",
+                    responsavel: "Responsável pelo setor de Produto (P.O.).", participantes: "Setor de Produto e Marketing.", periodicidade: "Sob demanda.",
+                    processo: `<p>As Avaliações Públicas fazem parte das atividades de Produto aplicadas ao desenvolvimento do sistema. Consistem no acompanhamento das avaliações realizadas publicamente (Play Store, App Store, Reclame Aqui, Google, redes sociais) utilizando-as como canal de relacionamento e insumo para evolução.</p><p>No fluxo de tratamento, o Marketing é responsável por responder às avaliações publicamente, enquanto o setor de Produto atua subsidiando esse processo: fornecendo embasamento técnico e contextual, e analisando os relatos para identificar oportunidades diretas de melhoria a serem incorporadas ao sistema.</p>`
+                },
+                { 
+                    nome: "Propostas Comerciais", icone: "fa-file-signature", cor: "sem4",
+                    responsavel: "Equipe Comercial.", participantes: "Setor de Produto, Comercial e CEO.", periodicidade: "Sob demanda.",
+                    processo: `<p>As Propostas Comerciais fazem parte das atividades de Produto aplicadas ao desenvolvimento do sistema Contele Teams. Referem-se à participação de Produto no apoio à área Comercial durante a elaboração de propostas que envolvam aspectos técnicos, funcionais ou de customização do sistema.</p><p>O acionamento ocorre sob demanda, sempre que a área Comercial identifica a necessidade de suporte. O P.O. avalia a viabilidade da demanda, desenha a solução adequada quando aplicável e, nos casos de integrações, automações ou I.A., escala o atendimento para a equipe de Projetos/IA, garantindo que a proposta reflita perfeitamente as possibilidades reais de entrega.</p>`
+                },
+                { 
+                    nome: "Avaliações (CS e Produto)", icone: "fa-clipboard-user", cor: "sem4",
+                    responsavel: "Responsável pelo setor de Produto (P.O.).", participantes: "Setor de Produto, Customer Success e RH.", periodicidade: "Semestral.",
+                    processo: `<p>As Avaliações (CS e Produto) fazem parte das atividades de Produto aplicadas ao desenvolvimento do sistema Contele Teams. Consistem na avaliação de desempenho dos colaboradores, promovendo o acompanhamento individual, o alinhamento de expectativas e o desenvolvimento contínuo dos profissionais.</p><p>A avaliação é conduzida em formato de one-a-one, com base em formulário padronizado que assegura consistência no processo. O RH conduz o processo e estrutura as reuniões, enquanto Produto e CS participam ativamente contribuindo com a percepção sobre os colaboradores e fornecendo os feedbacks necessários.</p>`
+                },
+                { 
+                    nome: "Equipe Comercial - Apoio", icone: "fa-handshake", cor: "sem4",
+                    responsavel: "Responsável pelo setor de Produto (P.O.).", participantes: "Setor de Produto, Comercial e CEO.", periodicidade: "Sob demanda e semanal (Segunda às 11h).",
+                    processo: `<p>O Apoio à Equipe Comercial faz parte das atividades de Produto aplicadas ao desenvolvimento. Consiste no suporte prestado pelo setor de Produto à área Comercial nas atividades de venda, contribuindo com conhecimento técnico ao longo das negociações.</p><p>Abrange o suporte em demonstrações e demos para clientes, esclarecimento de dúvidas técnicas e treinamento de vendedores sobre o sistema. O acionamento ocorre sob demanda (solicitação direta ou participação em calls). Além disso, o P.O. participa da reunião de alinhamento de vendas toda segunda-feira às 11h para auxiliar na condução de casos.</p><p><em>*Este processo é distinto do fluxo de "Propostas Comerciais", que trata da viabilidade de entregas customizadas.</em></p>`
+                }
             ];
 
             const container = document.getElementById('presentation-container');
-            let slideIndex = 7; // Continua a partir do slide-7
+            let slideIndex = 6;
 
             funcoes.forEach(func => {
                 const html = `
@@ -335,17 +424,23 @@
                     <img src="https://i.ibb.co/YFRS0XGF/oie-transparent.png" alt="Contele" class="logo-mini">
                     <h2><i class="fa-solid ${func.icone}"></i> ${func.nome}</h2>
                     <div class="detail-grid">
-                        <div class="detail-card detail-card-updated" style="border-left: 6px solid var(--${func.cor}-color);">
-                            <h3 style="color: var(--${func.cor}-color);">Diretrizes da Atividade</h3>
-                            <p>Espaço reservado para o mapeamento da função <strong>${func.nome}</strong>.</p>
-                            <ul class="feature-cards-list">
-                                <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>[Definir Responsável]</span></div></li>
-                                <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>[Definir Participantes]</span></div></li>
-                                <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>[Definir Periodicidade]</span></div></li>
-                                <li><div class="feature-icon-wrapper"><i class="fa-solid fa-align-left"></i></div><div class="feature-text-wrapper"><strong>Procedimento</strong><span>[Descrever o passo a passo da atividade em momento oportuno]</span></div></li>
-                            </ul>
+                        <div class="meta-column">
+                            <div class="meta-card" style="border-left: 5px solid var(--${func.cor}-color);">
+                                <ul class="feature-cards-list">
+                                    <li><div class="feature-icon-wrapper"><i class="fa-solid fa-user-tie"></i></div><div class="feature-text-wrapper"><strong>Responsável</strong><span>${func.responsavel}</span></div></li>
+                                    <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>${func.participantes}</span></div></li>
+                                    <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>${func.periodicidade}</span></div></li>
+                                </ul>
+                            </div>
+                            <div class="visual-card">
+                                <i class="fa-solid ${func.icone}" style="color: var(--${func.cor}-color);"></i>
+                                <h3 style="color: var(--${func.cor}-color);">${func.nome}</h3>
+                            </div>
                         </div>
-                        <div class="detail-visual-col"><i class="fa-solid ${func.icone}" style="color: var(--${func.cor}-color);"></i><h3>${func.nome}</h3></div>
+                        <div class="text-column" style="border-top: 5px solid var(--${func.cor}-color);">
+                            <div class="text-header" style="color: var(--${func.cor}-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
+                            <div class="proc-content">${func.processo}</div>
+                        </div>
                     </div>
                 </div>`;
                 container.insertAdjacentHTML('beforeend', html);
@@ -366,24 +461,23 @@
             <li class="index-item active-nav" onclick="goToSlide(0)"><i class="fa-solid fa-house"></i> Capa</li>
             <li class="index-item" onclick="goToSlide(1)"><i class="fa-solid fa-sitemap"></i> Visão Geral</li>
             
-            <div class="index-group">Procedimentos</div>
+            <div class="index-group">Processos</div>
             <li class="index-item sub-item" onclick="goToSlide(2)"><i class="fa-solid fa-lightbulb" style="color:var(--sem1-color)"></i> Debate de Ideias</li>
-            <li class="index-item sub-item" onclick="goToSlide(3)"><i class="fa-solid fa-ticket" style="color:var(--sem2-color)"></i> Análise de Tickets</li>
+            <li class="index-item sub-item" onclick="goToSlide(3)"><i class="fa-solid fa-ticket" style="color:var(--sem2-color)"></i> Gestão de Usabilidade</li>
             <li class="index-item sub-item" onclick="goToSlide(4)"><i class="fa-solid fa-project-diagram" style="color:var(--sem3-color)"></i> Tickets de Projetos</li>
             <li class="index-item sub-item" onclick="goToSlide(5)"><i class="fa-solid fa-graduation-cap" style="color:var(--sem4-color)"></i> Treinamentos CS</li>
-            <li class="index-item sub-item" onclick="goToSlide(6)"><i class="fa-solid fa-robot" style="color:var(--sem1-color)"></i> Integrações</li>
             
-            </ul>
+        </ul>
     </div>
 
     <script>
         // Preenche o restante do Sidebar
         const sidebarList = document.getElementById('sidebar-list');
-        let navIndex = 7;
+        let navIndex = 6;
         
         // Formata os nomes muito longos para caber no menu lateral
         const formatName = (name) => {
-            if(name.length > 22) return name.substring(0, 22) + "...";
+            if(name.length > 23) return name.substring(0, 23) + "...";
             return name;
         }
 
