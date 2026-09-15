@@ -136,6 +136,26 @@
         .control-btn:disabled { background-color: var(--neutral-bg); border-color: var(--card-border); color: #94A3B8; cursor: not-allowed; }
         a { color: var(--primary); text-decoration: none; font-weight: 600; }
         a:hover { text-decoration: underline; }
+
+        /* Complementos - versão revisada */
+        .badge-sec { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 5px 11px; border-radius: 50px; background: var(--sec2-bg); color: var(--sec2-color); border: 1px solid #FDE68A; }
+        .badge-macro { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 5px 11px; border-radius: 50px; background: var(--sec1-bg); color: var(--sec1-color); border: 1px solid #BFDBFE; }
+        .split-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 14px; }
+        .box { border-radius: 12px; padding: 15px 18px; border: 1px solid var(--card-border); background: var(--bg-page); }
+        .box-title { font-size: 13.5px; font-weight: 800; margin-bottom: 9px; display: flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: .6px; }
+        .box ul { padding-left: 17px; margin-bottom: 0; }
+        .box li { font-size: 14px; margin-bottom: 6px; line-height: 1.45; }
+        .box-ok { background: var(--sec1-bg); border-color: #BFDBFE; }
+        .box-ok .box-title { color: var(--sec1-color); }
+        .box-no { background: var(--sec3-bg); border-color: #FECACA; }
+        .box-no .box-title { color: var(--sec3-color); }
+        .callout { border-left: 4px solid var(--sec2-color); background: var(--sec2-bg); padding: 12px 16px; border-radius: 8px; font-size: 14.5px; line-height: 1.55; margin-bottom: 14px; }
+        .callout strong { color: #B45309; }
+        .kpi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; margin-bottom: 14px; }
+        .kpi { background: var(--bg-page); border: 1px solid var(--card-border); border-radius: 12px; padding: 15px 17px; }
+        .kpi strong { display: block; font-size: 14.5px; color: var(--secondary); margin-bottom: 5px; }
+        .kpi span { font-size: 13.5px; color: var(--text-gray); line-height: 1.5; }
+        .node-sec { opacity: .92; }
     </style>
 </head>
 <body>
@@ -145,153 +165,149 @@
         <div class="slide slide-cover active">
             <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Contele Teams" class="logo-cover">
             <h1>Manual de Funções e Processos</h1>
-            <p style="font-size: 21px; color: var(--text-gray); font-weight: 500;">Estrutura Organizacional e Mapeamento de Atividades</p>
-            <div class="cover-tag">Head de Produto Teams &middot; Setembro de 2026</div>
+            <p style="font-size: 21px; color: var(--text-gray); font-weight: 500;">Oito ações macro da liderança de Produto</p>
+            <div class="cover-tag">Head de Produto Teams &middot; Revisão Setembro de 2026</div>
         </div>
+
         <div class="slide">
             <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-sitemap"></i> Índice de Processos</h2>
+            <h2><i class="fa-solid fa-sitemap"></i> Índice de Ações Macro <span class="parent-tag">8 ações macro + frentes secundárias</span></h2>
             <div class="roadmap-container">
                 <div class="roadmap-col">
-                    <div class="col-header" style="color: var(--sec1-color);">Produto</div>
-                    <div class="node" style="border-left: 4px solid var(--sec1-color); background: var(--sec1-bg);"><i class="fa-solid fa-code-branch" style="color: var(--sec1-color);"></i> Histórias e Roadmap</div>
-                    <ul class="subnode-list"><li>Debate de Ideias</li><li>Refinamento de Produto</li><li>Design e Melhorias</li><li>Tickets de Projetos</li><li>Daily Teams</li><li>Homologação e Divulgação</li></ul>
-                    <div class="node" style="border-left: 4px solid var(--sec1-color); background: var(--sec1-bg);"><i class="fa-solid fa-ticket" style="color: var(--sec1-color);"></i> Gestão de Usabilidade</div>
-                    <div class="node" style="border-left: 4px solid var(--sec1-color); background: var(--sec1-bg);"><i class="fa-solid fa-circle-question" style="color: var(--sec1-color);"></i> Central de Ajuda e Materiais</div>
-                    <ul class="subnode-list"><li>Aplicação de Changelog</li></ul>
-                    <div class="node" style="border-left: 4px solid var(--sec1-color); background: var(--sec1-bg);"><i class="fa-solid fa-star-half-stroke" style="color: var(--sec1-color);"></i> Avaliações Públicas</div>
+                    <div class="col-header" style="color: var(--sec1-color);">Produto e Sistema</div>
+                    <div class="node" style="border-left: 4px solid var(--sec1-color); background: var(--sec1-bg);"><i class="fa-solid fa-code-branch" style="color: var(--sec1-color);"></i> 1. Evolução do Produto e Roadmap</div>
+                    <ul class="subnode-list"><li>Debate de Ideias</li><li>Refinamento de Produto</li><li>Homologação e Divulgação</li></ul>
+                    <div class="node" style="border-left: 4px solid var(--sec1-color); background: var(--sec1-bg);"><i class="fa-solid fa-ticket" style="color: var(--sec1-color);"></i> 2. Gestão de Tickets e Usabilidade</div>
+                    <div class="node" style="border-left: 4px solid var(--sec1-color); background: var(--sec1-bg);"><i class="fa-solid fa-screwdriver-wrench" style="color: var(--sec1-color);"></i> 3. Débitos Técnicos e Saúde do Sistema</div>
+                    <div class="node node-sec" style="border-left: 4px solid var(--sec2-color); background: var(--sec2-bg);"><i class="fa-solid fa-layer-group" style="color: var(--sec2-color);"></i> Frentes Secundárias</div>
+                    <ul class="subnode-list"><li>Design e Melhorias</li><li>Tickets de Projetos</li><li>Daily e Rituais Técnicos</li><li>Central de Ajuda e Changelog</li><li>Apoio a Vendas e Propostas</li><li>Avaliações Públicas</li></ul>
                 </div>
                 <div class="roadmap-col">
-                    <div class="col-header" style="color: var(--sec2-color);">Vendas & CS</div>
-                    <div class="node" style="border-left: 4px solid var(--sec2-color); background: var(--sec2-bg);"><i class="fa-solid fa-headset" style="color: var(--sec2-color);"></i> Apoio a CS</div>
-                    <div class="node" style="border-left: 4px solid var(--sec2-color); background: var(--sec2-bg);"><i class="fa-solid fa-comments-dollar" style="color: var(--sec2-color);"></i> Apoio a Vendas</div>
-                    <div class="node" style="border-left: 4px solid var(--sec2-color); background: var(--sec2-bg);"><i class="fa-solid fa-graduation-cap" style="color: var(--sec2-color);"></i> Treinamentos</div>
-                    <div class="node" style="border-left: 4px solid var(--sec2-color); background: var(--sec2-bg);"><i class="fa-solid fa-magnifying-glass-chart" style="color: var(--sec2-color);"></i> Auditorias</div>
-                    <div class="node" style="border-left: 4px solid var(--sec2-color); background: var(--sec2-bg);"><i class="fa-solid fa-file-signature" style="color: var(--sec2-color);"></i> Propostas Comerciais</div>
-                    <div class="node" style="border-left: 4px solid var(--sec2-color); background: var(--sec2-bg);"><i class="fa-solid fa-clipboard-user" style="color: var(--sec2-color);"></i> Avaliações de CS</div>
-                    <div class="node" style="border-left: 4px solid var(--sec2-color); background: var(--sec2-bg);"><i class="fa-solid fa-percent" style="color: var(--sec2-color);"></i> Descontos e Negociações</div>
+                    <div class="col-header" style="color: var(--sec2-color);">Comercial e Clientes</div>
+                    <div class="node" style="border-left: 4px solid var(--sec2-color); background: var(--sec2-bg);"><i class="fa-solid fa-chart-line" style="color: var(--sec2-color);"></i> 4. Inteligência Comercial de Produto</div>
+                    <div class="node" style="border-left: 4px solid var(--sec2-color); background: var(--sec2-bg);"><i class="fa-solid fa-crown" style="color: var(--sec2-color);"></i> 5. Co-gestão dos 30 Maiores Clientes</div>
+                    <div class="node" style="border-left: 4px solid var(--sec2-color); background: var(--sec2-bg);"><i class="fa-solid fa-shield-halved" style="color: var(--sec2-color);"></i> 6. Prevenção de Cancelamentos</div>
                 </div>
                 <div class="roadmap-col">
-                    <div class="col-header" style="color: var(--sec3-color);">Gestão</div>
-                    <div class="node" style="border-left: 4px solid var(--sec3-color); background: var(--sec3-bg);"><i class="fa-solid fa-users-gear" style="color: var(--sec3-color);"></i> Gestão Geral</div>
-                    <ul class="subnode-list"><li>Atualização de Processos</li><li>Gerenciamento de Acessos</li><li>Remuneração</li><li>Banco de Horas</li><li>Carteiras [Segmentação]</li></ul>
-                    <div class="node" style="border-left: 4px solid var(--sec3-color); background: var(--sec3-bg);"><i class="fa-solid fa-user-plus" style="color: var(--sec3-color);"></i> Integração de novo CS</div>
+                    <div class="col-header" style="color: var(--sec3-color);">Equipe e Gestão</div>
+                    <div class="node" style="border-left: 4px solid var(--sec3-color); background: var(--sec3-bg);"><i class="fa-solid fa-graduation-cap" style="color: var(--sec3-color);"></i> 7. Autonomia e Especialização do CS</div>
+                    <ul class="subnode-list"><li>Treinamento Intensivo</li><li>Senioridade e Avaliação</li></ul>
+                    <div class="node" style="border-left: 4px solid var(--sec3-color); background: var(--sec3-bg);"><i class="fa-solid fa-users-gear" style="color: var(--sec3-color);"></i> 8. Gestão da Equipe e Rotinas</div>
+                    <ul class="subnode-list"><li>Carteiras [Segmentação]</li><li>Integração de novo CS</li><li>Remuneração e Banco de Horas</li><li>Acessos e Atualização de Processos</li></ul>
+                    <div class="node" style="border-left: 4px solid var(--sec3-color); background: var(--sec3-bg);"><i class="fa-solid fa-bullseye" style="color: var(--sec3-color);"></i> Resultados e Medição</div>
                 </div>
             </div>
         </div>
+
         <div class="slide">
             <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-code-branch"></i> Histórias e Roadmap <span class="parent-tag">6 subprocessos</span></h2>
+            <h2><i class="fa-solid fa-compass"></i> Princípios da Função <span class="parent-tag">Base do manual</span></h2>
             <div class="detail-grid">
                 <div class="meta-column">
                     <div class="meta-card" style="border-left: 5px solid var(--sec1-color);">
                         <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Produto</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Tecnologia, Produto, Design, Projetos e CEO</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Semanal e sob demanda</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Fundamento</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto e Direção</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Permanente</span></div></li>
+                        </ul>
+                    </div>
+                    <div class="visual-card">
+                        <i class="fa-solid fa-compass" style="color: var(--sec1-color);"></i>
+                        <h3 style="color: var(--sec1-color);">Princípios da Função</h3>
+                        <div class="visual-sub">Base do manual</div>
+                    </div>
+                </div>
+                <div class="text-column" style="border-top: 5px solid var(--sec1-color);">
+                    <div class="text-header" style="color: var(--sec1-color);"><i class="fa-solid fa-align-left"></i> Delimitação do Papel</div>
+                    <div class="proc-content">
+<p>A liderança de Produto é dona da ponta da empresa: responde por tudo que entra e por tudo que sai de cliente, e pelos motivos de cada movimento. Na ausência de uma liderança direta de CS, a parte estratégica de Customer Success e a leitura estratégica do Comercial também pertencem a Produto.</p>
+<p>O papel é ouvir clientes, CS e Sustentação, transformar isso em decisão de produto e levar à Direção — atuando como olhos e ouvidos do Júlio e do Leonardo na reunião de roadmap.</p>
+<div class="split-2">
+    <div class="box box-ok">
+        <div class="box-title"><i class="fa-solid fa-circle-check"></i> É papel de Produto</div>
+        <ul>
+            <li>Ser dono da entrada e da saída de clientes.</li>
+            <li>Tornar o CS especialista e autônomo.</li>
+            <li>Co-gerir os 30 maiores clientes junto ao CS.</li>
+            <li>Levar dados de ticket, débito técnico e não venda ao roadmap.</li>
+            <li>Decidir o que evolui, o que sai e o que é reformulado no sistema.</li>
+        </ul>
+    </div>
+    <div class="box box-no">
+        <div class="box-title"><i class="fa-solid fa-circle-xmark"></i> Não é papel de Produto</div>
+        <ul>
+            <li>Dar devolutiva ou corrigir desempenho de vendedor.</li>
+            <li>Fazer gestão manual de pipeline.</li>
+            <li>Responder dúvidas rotineiras do CS.</li>
+            <li>Assumir a execução da rotina das equipes.</li>
+            <li>Colocar tarefas técnicas e de design à frente das ações macro.</li>
+        </ul>
+    </div>
+</div>
+<div class="callout"><strong>Teste de autonomia:</strong> se a liderança de Produto sair da empresa hoje, o CS precisa se virar sozinho. Enquanto a resposta for não, a formação da equipe não foi feita — e o tempo de Produto segue preso no operacional.</div>
+<p>Correção de desempenho comercial é do Leonardo, do Marco Antônio e do Júlio. Produto olha apenas o que a ponta revela sobre o sistema.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
+            <h2><i class="fa-solid fa-code-branch"></i> 1. Evolução do Produto e Roadmap <span class="badge badge-macro">Ação macro</span></h2>
+            <div class="detail-grid">
+                <div class="meta-column">
+                    <div class="meta-card" style="border-left: 5px solid var(--sec1-color);">
+                        <ul class="feature-cards-list">
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Produto e Sistema</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto, Tecnologia, Design e CEO</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-bullseye"></i></div><div class="feature-text-wrapper"><strong>Resultado esperado</strong><span>Roadmap decidido por evidência de cliente, ticket e não venda</span></div></li>
                         </ul>
                     </div>
                     <div class="sub-nav-card">
-                        <div class="sub-nav-title">Subprocessos</div>
-                        <div class="sub-nav-item active" data-tab="hr-0"><i class="fa-solid fa-code-branch"></i> Histórias e Roadmap</div>
-                        <div class="sub-nav-item" data-tab="hr-1"><i class="fa-solid fa-lightbulb"></i> Debate de Ideias</div>
-                        <div class="sub-nav-item" data-tab="hr-2"><i class="fa-solid fa-gem"></i> Refinamento de Produto</div>
-                        <div class="sub-nav-item" data-tab="hr-3"><i class="fa-solid fa-wand-magic-sparkles"></i> Design e Melhorias</div>
-                        <div class="sub-nav-item" data-tab="hr-4"><i class="fa-solid fa-diagram-project"></i> Tickets de Projetos</div>
-                        <div class="sub-nav-item" data-tab="hr-5"><i class="fa-solid fa-calendar-day"></i> Daily Teams</div>
+                        <div class="sub-nav-title">Frentes</div>
+                        <div class="sub-nav-item active" data-tab="pr-0"><i class="fa-solid fa-code-branch"></i> Visão Geral</div>
+                        <div class="sub-nav-item" data-tab="pr-1"><i class="fa-solid fa-lightbulb"></i> Debate de Ideias</div>
+                        <div class="sub-nav-item" data-tab="pr-2"><i class="fa-solid fa-gem"></i> Refinamento de Produto</div>
+                        <div class="sub-nav-item" data-tab="pr-3"><i class="fa-solid fa-clipboard-check"></i> Homologação e Divulgação</div>
                     </div>
                 </div>
                 <div class="text-column" style="border-top: 5px solid var(--sec1-color);">
                     <div class="tab-bar">
-                        <button class="tab-btn active" data-tab="hr-0"><i class="fa-solid fa-code-branch"></i> Visão Geral</button>
-                        <button class="tab-btn" data-tab="hr-1"><i class="fa-solid fa-lightbulb"></i> Debate de Ideias</button>
-                        <button class="tab-btn" data-tab="hr-2"><i class="fa-solid fa-gem"></i> Refinamento</button>
-                        <button class="tab-btn" data-tab="hr-3"><i class="fa-solid fa-wand-magic-sparkles"></i> Design e Melhorias</button>
-                        <button class="tab-btn" data-tab="hr-4"><i class="fa-solid fa-diagram-project"></i> Tickets de Projetos</button>
-                        <button class="tab-btn" data-tab="hr-5"><i class="fa-solid fa-calendar-day"></i> Daily Teams</button>
+                        <button class="tab-btn active" data-tab="pr-0"><i class="fa-solid fa-code-branch"></i> Visão Geral</button>
+                        <button class="tab-btn" data-tab="pr-1"><i class="fa-solid fa-lightbulb"></i> Debate de Ideias</button>
+                        <button class="tab-btn" data-tab="pr-2"><i class="fa-solid fa-gem"></i> Refinamento</button>
+                        <button class="tab-btn" data-tab="pr-3"><i class="fa-solid fa-clipboard-check"></i> Homologação</button>
                     </div>
-                    <div class="proc-content tab-pane active" id="hr-0">
-<div class="pane-title" style="color: var(--sec1-color);"><i class="fa-solid fa-code-branch"></i> Histórias e Roadmap</div>
-<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Tecnologia, Produto e CEO</span><span><i class="fa-solid fa-clock"></i> Semanal</span></div>
-<p>Transformação das necessidades da base em demandas de desenvolvimento e definição do que entra no planejamento do Contele Teams.</p>
-<p>As histórias são escritas como issues no GitHub Projects, no padrão <em>"Como [perfil], quero [objetivo], para [finalidade]"</em>, com contexto, comportamento esperado e critérios de aceite. Demandas nascidas no Desenvolvimento viram subissue da história de origem.</p>
-<p><strong>A rotina abrange:</strong></p>
+                    <div class="proc-content tab-pane active" id="pr-0">
+<div class="pane-title" style="color: var(--sec1-color);"><i class="fa-solid fa-code-branch"></i> Evolução do Produto e Roadmap</div>
+<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto, Tecnologia e CEO</span><span><i class="fa-solid fa-clock"></i> Semanal</span></div>
+<p>Transformar o que a ponta revela — clientes, CS, Sustentação e Comercial — em decisão de desenvolvimento, definindo o que entra no planejamento do Contele Teams.</p>
+<p><strong>A ação abrange:</strong></p>
 <ul>
-<li>Analisar ideias de clientes, CS, Sustentação e Comercial.</li>
-<li>Avaliar esforço, impacto e dependências com a Tecnologia.</li>
-<li>Priorizar o Roadmap com Tecnologia e CEO, dando precedência ao que destrava CS e Comercial.</li>
+<li>Consolidar as evidências das demais ações macro: tickets recorrentes, débitos técnicos, motivos de não venda e motivos de cancelamento.</li>
+<li>Levar essas evidências à reunião de roadmap com Júlio e Leonardo de forma clara e decidível: manter, reformular ou retirar.</li>
+<li>Priorizar o que destrava CS e Comercial e o que sustenta os 30 maiores clientes.</li>
+<li>Escrever as histórias e acompanhar a entrega até a adoção.</li>
 </ul>
+<p>As histórias são escritas como issues no GitHub Projects, no padrão <em>"Como [perfil], quero [objetivo], para [finalidade]"</em>, com contexto, comportamento esperado e critérios de aceite. Demandas nascidas no Desenvolvimento viram subissue da história de origem.</p>
                     </div>
-                    <div class="proc-content tab-pane" id="hr-1">
+                    <div class="proc-content tab-pane" id="pr-1">
 <div class="pane-title" style="color: var(--sec1-color);"><i class="fa-solid fa-lightbulb"></i> Debate de Ideias</div>
 <div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto e CEO</span><span><i class="fa-solid fa-clock"></i> Semanal</span></div>
-<p>O Debate de Ideias ocorre em reunião semanal conduzida pelo responsável pelo setor de Produto, com participação do CEO, e tem como objetivo avaliar as ideias registradas por clientes e colaboradores da Contele.</p>
-<p>As ideias são registradas em formulário disponível na Web Teams, de livre preenchimento. Após o registro, ficam disponíveis em cards no Kanban de Gestão de Ideias, onde avançam por etapas até a conclusão ou o arquivamento.</p>
+<p>Reunião semanal conduzida pelo responsável de Produto, com participação do CEO, para avaliar as ideias registradas por clientes e colaboradores da Contele.</p>
+<p>As ideias são registradas em formulário disponível na Web Teams, de livre preenchimento, e avançam em cards no Kanban de Gestão de Ideias até a conclusão ou o arquivamento.</p>
                     </div>
-                    <div class="proc-content tab-pane" id="hr-2">
+                    <div class="proc-content tab-pane" id="pr-2">
 <div class="pane-title" style="color: var(--sec1-color);"><i class="fa-solid fa-gem"></i> Refinamento de Produto</div>
 <div class="pane-meta"><span><i class="fa-solid fa-users"></i> Tecnologia e Produto</span><span><i class="fa-solid fa-clock"></i> Sob demanda</span></div>
 <p>Refinar as histórias para que cheguem completas e claras ao desenvolvimento, assegurando que cada demanda esteja preparada antes da implementação.</p>
-<p>As histórias a refinar ficam registradas em issues no Kanban de desenvolvimento, no GitHub Projects. O responsável pelo setor de Produto conduz o refinamento de cada história, podendo envolver o CEO, os designers e a equipe técnica ao longo do processo.</p>
+<p>As histórias a refinar ficam registradas em issues no Kanban de desenvolvimento, no GitHub Projects. O responsável de Produto conduz o refinamento, podendo envolver o CEO, os designers e a equipe técnica ao longo do processo.</p>
 <p><strong>Atenção:</strong> histórias em refinamento não devem ser vinculadas à etapa "To Do", que indica história já pronta para desenvolvimento.</p>
                     </div>
-                    <div class="proc-content tab-pane" id="hr-3">
-<div class="pane-title" style="color: var(--sec1-color);"><i class="fa-solid fa-wand-magic-sparkles"></i> Design e Melhorias</div>
-<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto, Design e CEO</span><span><i class="fa-solid fa-clock"></i> Sob demanda</span></div>
-<p>Condução das melhorias desde a identificação até a validação das soluções aplicadas ao Contele Teams.</p>
-<p>As melhorias são tratadas em reunião semanal com o designer, responsável por desenhar as telas de projetos e melhorias do sistema.</p>
-<p>Toda melhoria apresentada deve possuir história escrita, recebendo a label "Design" no GitHub. A plataforma oficial utilizada pelo designer é o Figma.</p>
-<p><strong>As melhorias devem ter origem em:</strong></p>
-<ul>
-<li><strong>SOLICITAÇÕES:</strong> Demandas levantadas pelos clientes.</li>
-<li><strong>IDEIAS DEBATIDAS:</strong> Originadas do processo de Debate de Ideias.</li>
-<li><strong>PROJETOS JÁ CRIADOS:</strong> Adaptações e aprimoramentos de entregas anteriores.</li>
-</ul>
-                    </div>
-                    <div class="proc-content tab-pane" id="hr-4">
-<div class="pane-title" style="color: var(--sec1-color);"><i class="fa-solid fa-diagram-project"></i> Tickets de Projetos</div>
-<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto e Projetos</span><span><i class="fa-solid fa-clock"></i> Sob demanda</span></div>
-<p>Os Tickets de Projetos referem-se às demandas de integrações, automações e projetos com Inteligência Artificial que, por sua natureza, não são tratadas como evoluções diretas no sistema, sendo conduzidas pela equipe de Projetos/IA.</p>
-<p>Os tickets são registrados e geridos no Contele OS, disponível em <a href="https://os.contele.io/painel/projetos" target="_blank">os.contele.io/painel/projetos</a>, onde ficam concentradas as demandas dessa natureza e o acompanhamento de sua execução.</p>
-<p>O fluxo tem início nas reuniões com o cliente, em que se busca entender a operação e o resultado esperado. Quando a demanda não deve, naquele momento, ser atendida por desenvolvimento no sistema, é desenhada a solução possível dentro do Contele Teams e o projeto é escalado para a equipe de Projetos/IA — evitando compromissos que o sistema não sustenta.</p>
-                    </div>
-                    <div class="proc-content tab-pane" id="hr-5">
-<div class="pane-title" style="color: var(--sec1-color);"><i class="fa-solid fa-calendar-day"></i> Daily Teams</div>
-<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Tecnologia e Produto</span><span><i class="fa-solid fa-clock"></i> Diário</span></div>
-<p>A Daily Teams reúne diariamente Desenvolvimento, Produto e Design para o alinhamento das entregas em andamento. A escolha do apresentador é por sorteio ou livre atribuição, e o Produto participa tirando dúvidas e propondo priorizações.</p>
-<p><strong>Ordem da apresentação:</strong></p>
-<ul>
-<li><strong>1ª parte:</strong> Sustentação comenta os novos casos abertos a partir de tickets de clientes.</li>
-<li><strong>2ª parte:</strong> Desenvolvedores comentam os SLAs da Sustentação no GitHub, somente os casos da semana.</li>
-<li><strong>3ª parte:</strong> Desenvolvedores, Produto e Design comentam suas issues ativas: Aguardando Deploy, Validando, Aguardando Validação, Impedido e WIP.</li>
-</ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-clipboard-check"></i> Homologação e Divulgação <span class="parent-tag">Histórias e Roadmap</span></h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec1-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Produto</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Sob demanda</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-clipboard-check" style="color: var(--sec1-color);"></i>
-                        <h3 style="color: var(--sec1-color);">Homologação e Divulgação</h3>
-                        <div class="visual-sub">Histórias e Roadmap</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec1-color);">
-                    <div class="text-header" style="color: var(--sec1-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>A Homologação e Divulgação consiste em validar cada melhoria antes de liberá-la e garantir que equipes e clientes saibam o que mudou e como usar.</p>
-<p><strong>O processo abrange as seguintes etapas:</strong></p>
+                    <div class="proc-content tab-pane" id="pr-3">
+<div class="pane-title" style="color: var(--sec1-color);"><i class="fa-solid fa-clipboard-check"></i> Homologação e Divulgação</div>
+<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto</span><span><i class="fa-solid fa-clock"></i> Sob demanda</span></div>
+<p>Validar cada melhoria antes de liberá-la e garantir que equipes e clientes saibam o que mudou e como usar.</p>
 <ul>
 <li>Testar a entrega no sistema e no aplicativo, conferindo os critérios de aceite.</li>
 <li>Verificar se nenhuma função existente foi impactada.</li>
@@ -299,547 +315,322 @@
 <li>Divulgar no WhatsApp interno, no Canal Teams e no Changelog.</li>
 <li>Treinar as equipes nas novas funções e acompanhar a adoção.</li>
 </ul>
+<p>A divulgação só é concluída quando a adoção é verificada na base — entrega sem adoção volta como evidência para o roadmap.</p>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="slide">
             <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-ticket"></i> Gestão de Usabilidade </h2>
+            <h2><i class="fa-solid fa-ticket"></i> 2. Gestão de Tickets e Usabilidade <span class="badge badge-macro">Ação macro</span></h2>
             <div class="detail-grid">
                 <div class="meta-column">
                     <div class="meta-card" style="border-left: 5px solid var(--sec1-color);">
                         <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Produto</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto e Sustentação</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Semanal</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Produto e Sistema</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto, Sustentação e Direção</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-bullseye"></i></div><div class="feature-text-wrapper"><strong>Resultado esperado</strong><span>Queda contínua de tickets recorrentes por motivo</span></div></li>
                         </ul>
                     </div>
                     <div class="visual-card">
                         <i class="fa-solid fa-ticket" style="color: var(--sec1-color);"></i>
-                        <h3 style="color: var(--sec1-color);">Gestão de Usabilidade</h3>
-                        <div class="visual-sub">Produto</div>
+                        <h3 style="color: var(--sec1-color);">Gestão de Tickets e Usabilidade</h3>
+                        <div class="visual-sub">Produto e Sistema</div>
                     </div>
                 </div>
                 <div class="text-column" style="border-top: 5px solid var(--sec1-color);">
-                    <div class="text-header" style="color: var(--sec1-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
+                    <div class="text-header" style="color: var(--sec1-color);"><i class="fa-solid fa-align-left"></i> Detalhes da Ação</div>
                     <div class="proc-content">
-<p>Identificar, analisar e tratar dificuldades de uso dos clientes, gerando melhorias contínuas na experiência do Contele Teams.</p>
+<p>O ticket é a prova mais direta de que algo não está funcionando. A ação consiste em usar o relatório de Sustentação de forma inteligente: não como registro de atendimento, mas como leitura de produto.</p>
 <ul>
-<li><strong>Origem:</strong> tickets encaminhados à Sustentação, onde são identificados os pontos de atrito relatados.</li>
-<li><strong>Registro:</strong> um card por situação no board de Usabilidade.</li>
-<li><strong>Revisão semanal:</strong> reunião fixa com a Sustentação para avaliar relevância e recorrência de cada questão.</li>
-<li><strong>Monitoramento:</strong> dashboard e apoio de IA para acompanhar quem usa o quê na base.</li>
-<li><strong>Priorização:</strong> contas de maior impacto de receita e risco, acionando o CS nas lacunas de adoção.</li>
+<li><strong>Classificação por motivo:</strong> agrupar os tickets por item do sistema e identificar quais assuntos concentram volume.</li>
+<li><strong>Régua de normalidade:</strong> definir o patamar aceitável de tickets por motivo e sinalizar o que ultrapassa esse nível.</li>
+<li><strong>Registro de atrito:</strong> um card por situação no board de Usabilidade, com avaliação de relevância e recorrência.</li>
+<li><strong>Revisão semanal:</strong> reunião fixa com a Sustentação.</li>
+<li><strong>Decisão no roadmap:</strong> apresentar os motivos recorrentes a Júlio e Leonardo para decidir se o item muda, é reformulado ou permanece como está.</li>
 </ul>
-<p><strong>Leitura de cancelamentos sob a ótica do produto:</strong></p>
+<div class="callout">O Teams está favorável nesse aspecto por concentrar módulos novos, mas já há acúmulo identificado. A leitura precisa ser contínua, não pontual.</div>
+<p><strong>Monitoramento de adoção:</strong> dashboard e apoio de I.A. para acompanhar quem usa o quê na base, priorizando contas de maior impacto de receita e risco e acionando o CS nas lacunas de adoção.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
+            <h2><i class="fa-solid fa-screwdriver-wrench"></i> 3. Débitos Técnicos e Saúde do Sistema <span class="badge badge-macro">Ação macro</span></h2>
+            <div class="detail-grid">
+                <div class="meta-column">
+                    <div class="meta-card" style="border-left: 5px solid var(--sec1-color);">
+                        <ul class="feature-cards-list">
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Produto e Sistema</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto, Tecnologia, Sustentação e Direção</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-bullseye"></i></div><div class="feature-text-wrapper"><strong>Resultado esperado</strong><span>Sistema estável, atualizado e sem débito acumulado</span></div></li>
+                        </ul>
+                    </div>
+                    <div class="visual-card">
+                        <i class="fa-solid fa-screwdriver-wrench" style="color: var(--sec1-color);"></i>
+                        <h3 style="color: var(--sec1-color);">Débitos Técnicos e Saúde do Sistema</h3>
+                        <div class="visual-sub">Produto e Sistema</div>
+                    </div>
+                </div>
+                <div class="text-column" style="border-top: 5px solid var(--sec1-color);">
+                    <div class="text-header" style="color: var(--sec1-color);"><i class="fa-solid fa-align-left"></i> Detalhes da Ação</div>
+                    <div class="proc-content">
+<p>Débito técnico é o que foi resolvido para o cliente, mas ficou pendente no sistema. Hoje existe uma lista extensa acumulada, e ela não deveria existir. Zerar e manter zerada essa lista é responsabilidade de Produto.</p>
+<ul>
+<li><strong>Pauta permanente:</strong> os débitos técnicos entram em toda reunião de roadmap, sem exceção, até serem tratados ou descartados formalmente.</li>
+<li><strong>Priorização:</strong> ordenar por risco de reincidência, impacto em conta grande e custo de manutenção.</li>
+<li><strong>Revisão de obsolescência:</strong> avaliar periodicamente o que não está sendo usado no sistema e decidir com a Direção se sai, se melhora ou se permanece.</li>
+<li><strong>Acompanhamento:</strong> monitorar a lista de forma contínua e reportar a evolução — quanto entrou, quanto saiu, o que segue parado.</li>
+</ul>
+<div class="callout">Produto atua como <strong>olhos e ouvidos do Júlio e do Leonardo</strong> sobre a saúde do sistema: nada relevante sobre estabilidade, obsolescência ou débito deve chegar à Direção por outra via.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
+            <h2><i class="fa-solid fa-chart-line"></i> 4. Inteligência Comercial de Produto <span class="badge badge-macro">Ação macro</span></h2>
+            <div class="detail-grid">
+                <div class="meta-column">
+                    <div class="meta-card" style="border-left: 5px solid var(--sec2-color);">
+                        <ul class="feature-cards-list">
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Comercial e Clientes</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto, Projetos/IA e Direção</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-bullseye"></i></div><div class="feature-text-wrapper"><strong>Resultado esperado</strong><span>Motivos de não venda resolvidos no roadmap</span></div></li>
+                        </ul>
+                    </div>
+                    <div class="visual-card">
+                        <i class="fa-solid fa-chart-line" style="color: var(--sec2-color);"></i>
+                        <h3 style="color: var(--sec2-color);">Inteligência Comercial de Produto</h3>
+                        <div class="visual-sub">Comercial e Clientes</div>
+                    </div>
+                </div>
+                <div class="text-column" style="border-top: 5px solid var(--sec2-color);">
+                    <div class="text-header" style="color: var(--sec2-color);"><i class="fa-solid fa-align-left"></i> Detalhes da Ação</div>
+                    <div class="proc-content">
+<p>Saber por que a Contele não está vendendo é responsabilidade de Produto. A pergunta a ser respondida de forma permanente: quantos leads entraram, quantos foram dados como perdidos e por quê.</p>
+<p>A apuração não é manual. Os dados são produzidos por inteligência artificial — frente alinhada com o Marco Antônio — e chegam a Produto já classificados por motivo de perda.</p>
+<p><strong>Motivos típicos a separar:</strong></p>
+<ul>
+<li>Ausência de módulo ou funcionalidade no sistema.</li>
+<li>Preço acima do percebido como justo pelo cliente.</li>
+<li>Demora no retorno ao cliente.</li>
+<li>Falha no procedimento de vendas.</li>
+</ul>
+<p>Quando o motivo é de produto, a demanda vai para Júlio e Leonardo com proposta de ajuste de roadmap. Quando o motivo é de preço, Produto levanta o que se tentou vender e se a oferta está sendo montada da forma correta. Quando o motivo é de processo comercial, Produto apenas expõe o dado.</p>
+<div class="split-2">
+    <div class="box box-no">
+        <div class="box-title"><i class="fa-solid fa-circle-xmark"></i> Fora do escopo</div>
+        <ul>
+            <li>Devolutiva ou correção de desempenho de vendedor.</li>
+            <li>Verificação de atendimento individual.</li>
+            <li>Gestão manual de pipeline.</li>
+        </ul>
+    </div>
+    <div class="box box-ok">
+        <div class="box-title"><i class="fa-solid fa-circle-check"></i> Responsável pela correção</div>
+        <ul>
+            <li>Leonardo, Marco Antônio e Júlio, na frente comercial.</li>
+            <li>Produto expõe o dado e trata o que é de sistema.</li>
+        </ul>
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
+            <h2><i class="fa-solid fa-crown"></i> 5. Co-gestão dos 30 Maiores Clientes <span class="badge badge-macro">Ação macro</span></h2>
+            <div class="detail-grid">
+                <div class="meta-column">
+                    <div class="meta-card" style="border-left: 5px solid var(--sec2-color);">
+                        <ul class="feature-cards-list">
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Comercial e Clientes</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto e CS</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-bullseye"></i></div><div class="feature-text-wrapper"><strong>Resultado esperado</strong><span>30 maiores contas estáveis e com relação direta com Produto</span></div></li>
+                        </ul>
+                    </div>
+                    <div class="visual-card">
+                        <i class="fa-solid fa-crown" style="color: var(--sec2-color);"></i>
+                        <h3 style="color: var(--sec2-color);">Co-gestão dos 30 Maiores Clientes</h3>
+                        <div class="visual-sub">Comercial e Clientes</div>
+                    </div>
+                </div>
+                <div class="text-column" style="border-top: 5px solid var(--sec2-color);">
+                    <div class="text-header" style="color: var(--sec2-color);"><i class="fa-solid fa-align-left"></i> Detalhes da Ação</div>
+                    <div class="proc-content">
+<p>Produto é dono dos 30 maiores clientes junto com o CS. A carteira segue com o CS; a relação e a decisão de produto sobre essas contas são compartilhadas.</p>
+<p><strong>O que significa ser dono dessas contas:</strong></p>
+<ul>
+<li>O cliente sabe quem é a liderança de Produto e tem canal direto de contato quando precisar.</li>
+<li>Reuniões periódicas com cada conta, conduzidas em conjunto com o CS responsável.</li>
+<li>Relatório semanal com o CS sobre o que está acontecendo em cada uma dessas contas.</li>
+<li>O que essas contas pedem entra como prioridade na avaliação do roadmap.</li>
+<li>Sinal de risco identificado vira ação imediata, não espera o ciclo de cancelamento.</li>
+</ul>
+<div class="callout">Cliente grande que sai por falta de atenção é perda evitável. A proximidade é o que antecipa o problema enquanto ainda há o que fazer.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
+            <h2><i class="fa-solid fa-shield-halved"></i> 6. Prevenção de Cancelamentos <span class="badge badge-macro">Ação macro</span></h2>
+            <div class="detail-grid">
+                <div class="meta-column">
+                    <div class="meta-card" style="border-left: 5px solid var(--sec2-color);">
+                        <ul class="feature-cards-list">
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Comercial e Clientes</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto, CS e Direção</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-bullseye"></i></div><div class="feature-text-wrapper"><strong>Resultado esperado</strong><span>Churn em 3% com motivos estancados na origem</span></div></li>
+                        </ul>
+                    </div>
+                    <div class="visual-card">
+                        <i class="fa-solid fa-shield-halved" style="color: var(--sec2-color);"></i>
+                        <h3 style="color: var(--sec2-color);">Prevenção de Cancelamentos</h3>
+                        <div class="visual-sub">Comercial e Clientes</div>
+                    </div>
+                </div>
+                <div class="text-column" style="border-top: 5px solid var(--sec2-color);">
+                    <div class="text-header" style="color: var(--sec2-color);"><i class="fa-solid fa-align-left"></i> Detalhes da Ação</div>
+                    <div class="proc-content">
+<p>Corrigir caso a caso sem estancar a origem mantém o cancelamento acontecendo pelo mesmo motivo. A ação é ler o churn sob a ótica do produto e eliminar a causa.</p>
 <ul>
 <li>Tratar o cancelamento como sinal de produto, não como falha isolada do CS.</li>
-<li>Investigar por que o sistema não supriu a necessidade do cliente.</li>
-<li>Distinguir falha de produto de má adequação do perfil vendido.</li>
-<li>Transformar padrões de cancelamento em melhorias, perseguindo a meta de churn de 3%.</li>
+<li>Investigar por que o sistema não supriu a necessidade daquele cliente.</li>
+<li>Distinguir falha de produto de má adequação do perfil vendido — e devolver o segundo caso ao Comercial.</li>
+<li>Agrupar os motivos e levar os padrões recorrentes ao roadmap.</li>
+<li>Acompanhar se a ação tomada de fato reduziu a recorrência do motivo.</li>
 </ul>
+<p>A meta de churn é de <strong>3%</strong>. O indicador acompanhado não é apenas o percentual, mas quantos motivos de cancelamento foram efetivamente eliminados no período.</p>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="slide">
             <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-circle-question"></i> Central de Ajuda e Materiais </h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec1-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Produto</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto e Marketing</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Sob demanda</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-circle-question" style="color: var(--sec1-color);"></i>
-                        <h3 style="color: var(--sec1-color);">Central de Ajuda e Materiais</h3>
-                        <div class="visual-sub">Produto</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec1-color);">
-                    <div class="text-header" style="color: var(--sec1-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>A Central de Ajuda e Materiais garante que a base de conhecimento do Contele Teams permaneça precisa e alinhada às versões mais recentes do sistema.</p>
-<p>A atualização é desencadeada sempre que ocorre o lançamento de novas funcionalidades, alterações no sistema ou correções de bugs relevantes que impactem a usabilidade. Abrange também a revisão contínua dos artigos existentes, assegurando tutoriais corretos independentemente de novos lançamentos.</p>
-<p>Além dos artigos, a atividade cobre a produção e a manutenção dos materiais de apoio utilizados por CS, Vendas e clientes: vídeos explicativos, guias e conteúdos elaborados em conjunto com o Marketing.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-clipboard-list"></i> Aplicação de Changelog <span class="parent-tag">Central de Ajuda e Materiais</span></h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec1-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Produto</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Sob demanda</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-clipboard-list" style="color: var(--sec1-color);"></i>
-                        <h3 style="color: var(--sec1-color);">Aplicação de Changelog</h3>
-                        <div class="visual-sub">Central de Ajuda e Materiais</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec1-color);">
-                    <div class="text-header" style="color: var(--sec1-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>A Aplicação de Changelog consiste na consolidação e divulgação das melhorias e correções entregues ao sistema, comunicando clientes e colaboradores.</p>
-<p>As entradas têm origem nas issues concluídas no GitHub Projects ("Feito na Semana"). São analisadas e movidas para a etapa "Changelog" as que representam novidades relevantes, e o conteúdo é formatado com apoio de I.A.</p>
-<p>O Changelog é publicado na Web Teams (Novidades da Web), no App Teams (seção Novidades) e no grupo de WhatsApp "Teams | Melhorias no Sistema".</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-star-half-stroke"></i> Avaliações Públicas </h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec1-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Produto</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto e Marketing</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Sob demanda</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-star-half-stroke" style="color: var(--sec1-color);"></i>
-                        <h3 style="color: var(--sec1-color);">Avaliações Públicas</h3>
-                        <div class="visual-sub">Produto</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec1-color);">
-                    <div class="text-header" style="color: var(--sec1-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>As Avaliações Públicas consistem no acompanhamento das avaliações realizadas publicamente — Play Store, App Store, Reclame Aqui, Google e redes sociais — utilizando-as como canal de relacionamento e insumo para a evolução do Contele Teams.</p>
-<p>No fluxo de tratamento, o Marketing é responsável por responder às avaliações publicamente, enquanto o setor de Produto atua subsidiando esse processo: fornecendo embasamento técnico e contextual e analisando os relatos para identificar oportunidades diretas de melhoria a serem incorporadas ao sistema.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-headset"></i> Apoio a CS </h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec2-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Vendas e Customer Success</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto e CS</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Diário</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-headset" style="color: var(--sec2-color);"></i>
-                        <h3 style="color: var(--sec2-color);">Apoio a CS</h3>
-                        <div class="visual-sub">Vendas e Customer Success</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec2-color);">
-                    <div class="text-header" style="color: var(--sec2-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>O Apoio a CS consiste em ser referência da equipe nas questões que ultrapassam a rotina de atendimento e atuar diretamente nos casos críticos.</p>
-<ul>
-<li>Orientar sobre procedimentos gerais e funcionamento do sistema.</li>
-<li>Analisar dúvidas e problemas relatados pelos clientes.</li>
-<li>Participar de reuniões de retenção e de apresentação de novidades.</li>
-<li>Abrir tickets de melhoria dos processos e ferramentas do setor.</li>
-</ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-comments-dollar"></i> Apoio a Vendas </h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec2-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Vendas e Customer Success</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto e Vendas</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Diário</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-comments-dollar" style="color: var(--sec2-color);"></i>
-                        <h3 style="color: var(--sec2-color);">Apoio a Vendas</h3>
-                        <div class="visual-sub">Vendas e Customer Success</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec2-color);">
-                    <div class="text-header" style="color: var(--sec2-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>O Apoio a Vendas consiste no suporte prestado pelo setor de Produto à área Comercial nas atividades de venda, contribuindo com conhecimento técnico ao longo das negociações.</p>
-<p>Abrange o suporte em demonstrações e demos para clientes, o esclarecimento de dúvidas técnicas e a orientação dos vendedores sobre o sistema. O acionamento ocorre de forma direta, por solicitação ou participação em calls, além da reunião de alinhamento de vendas.</p>
-<p><em>Este processo é distinto do fluxo de Propostas Comerciais, que trata da viabilidade de entregas customizadas.</em></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-graduation-cap"></i> Treinamentos </h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec2-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Vendas e Customer Success</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Sob demanda</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-graduation-cap" style="color: var(--sec2-color);"></i>
-                        <h3 style="color: var(--sec2-color);">Treinamentos</h3>
-                        <div class="visual-sub">Vendas e Customer Success</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec2-color);">
-                    <div class="text-header" style="color: var(--sec2-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>Os Treinamentos têm como objetivo formar um time consultivo e reduzir a dependência da liderança na operação, capacitando CS e Vendas no Contele Teams e nas rotinas do setor.</p>
-<p><strong>A condução combina diferentes formatos:</strong></p>
-<ul>
-<li><strong>Sessões ao vivo:</strong> Reuniões para introdução, alinhamentos e dúvidas.</li>
-<li><strong>Gravações e vídeos:</strong> Materiais que demonstram as funcionalidades.</li>
-<li><strong>Documentação:</strong> Estudo de processos, manuais e guias organizados.</li>
-</ul>
-<p>O foco é treinar a equipe em consultoria e escuta ativa, capacitá-la para conduzir sozinha as reuniões com clientes e investigar a raiz das dúvidas em vez de responder o trivial.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-magnifying-glass-chart"></i> Auditorias </h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec2-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Vendas e Customer Success</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Sob demanda</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-magnifying-glass-chart" style="color: var(--sec2-color);"></i>
-                        <h3 style="color: var(--sec2-color);">Auditorias</h3>
-                        <div class="visual-sub">Vendas e Customer Success</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec2-color);">
-                    <div class="text-header" style="color: var(--sec2-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>As Auditorias acompanham o processo comercial e de atendimento para garantir que o produto seja apresentado como ele é e que o padrão de atendimento seja cumprido.</p>
-<p><strong>Frentes auditadas:</strong></p>
-<ul>
-<li>Assistir a apresentações de vendedores por amostragem.</li>
-<li>Analisar leads perdidos e identificar se a falha é de produto ou de apresentação.</li>
-<li>Conferir a aderência à regra de licenças mínimas.</li>
-<li>Auditar o padrão de onboarding, priorizando cliente completo e engajado no lugar de prazo cumprido.</li>
-<li>Auditar a evolução da adoção em vez de executar a rotina do time.</li>
-</ul>
-<p>O onboarding trabalha com referência de 40 dias, aceitando até 60 dias em 20% dos casos justificados, e exige o uso de ao menos dois módulos core do Contele Teams.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-file-signature"></i> Propostas Comerciais </h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec2-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Vendas e Customer Success</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto e CEO</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Sob demanda</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-file-signature" style="color: var(--sec2-color);"></i>
-                        <h3 style="color: var(--sec2-color);">Propostas Comerciais</h3>
-                        <div class="visual-sub">Vendas e Customer Success</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec2-color);">
-                    <div class="text-header" style="color: var(--sec2-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>As Propostas Comerciais referem-se à participação de Produto no apoio à área Comercial durante a elaboração de propostas que envolvam aspectos técnicos, funcionais ou de customização do Contele Teams.</p>
-<p>O acionamento ocorre sob demanda, sempre que a área Comercial identifica a necessidade de suporte. Produto avalia a viabilidade, desenha a solução adequada quando aplicável e, nos casos de integrações, automações ou I.A., escala o atendimento para a equipe de Projetos/IA, garantindo que a proposta reflita as possibilidades reais de entrega.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-clipboard-user"></i> Avaliações de CS </h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec2-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Vendas e Customer Success</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Trimestral</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-clipboard-user" style="color: var(--sec2-color);"></i>
-                        <h3 style="color: var(--sec2-color);">Avaliações de CS</h3>
-                        <div class="visual-sub">Vendas e Customer Success</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec2-color);">
-                    <div class="text-header" style="color: var(--sec2-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>As Avaliações de CS consistem na avaliação de desempenho dos colaboradores, promovendo o acompanhamento individual, o alinhamento de expectativas e o desenvolvimento contínuo dos profissionais.</p>
-<p>A avaliação é conduzida em formato de one-a-one, com base em formulário padronizado que assegura consistência no processo. O RH conduz o processo e estrutura as reuniões, enquanto Produto participa ativamente contribuindo com a percepção sobre os colaboradores e fornecendo os feedbacks necessários.</p>
-<p>A operação segue por senioridade e indicadores, e quem não atingir o padrão no período avaliado é reposicionado.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-percent"></i> Descontos e Negociações </h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec2-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Vendas e Customer Success</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto e CEO</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Sob demanda</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-percent" style="color: var(--sec2-color);"></i>
-                        <h3 style="color: var(--sec2-color);">Descontos e Negociações</h3>
-                        <div class="visual-sub">Vendas e Customer Success</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec2-color);">
-                    <div class="text-header" style="color: var(--sec2-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>Os Descontos e Negociações consistem em conduzir a negociação de descontos e transformar o que é concedido em informação de melhoria.</p>
-<ul>
-<li>Avaliar e definir as condições aplicáveis a cada caso.</li>
-<li>Revisar mensalmente o relatório de descontos com o Financeiro.</li>
-</ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-users-gear"></i> Gestão Geral </h2>
+            <h2><i class="fa-solid fa-graduation-cap"></i> 7. Autonomia e Especialização do CS <span class="badge badge-macro">Ação macro</span></h2>
             <div class="detail-grid">
                 <div class="meta-column">
                     <div class="meta-card" style="border-left: 5px solid var(--sec3-color);">
                         <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Gestão</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Sob demanda</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Equipe e Gestão</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto, CS e RH</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-bullseye"></i></div><div class="feature-text-wrapper"><strong>Resultado esperado</strong><span>Equipe de CS sênior, especialista em produto e independente</span></div></li>
                         </ul>
                     </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-users-gear" style="color: var(--sec3-color);"></i>
-                        <h3 style="color: var(--sec3-color);">Gestão Geral</h3>
-                        <div class="visual-sub">Gestão</div>
+                    <div class="sub-nav-card">
+                        <div class="sub-nav-title">Frentes</div>
+                        <div class="sub-nav-item active" data-tab="cs-0"><i class="fa-solid fa-graduation-cap"></i> Visão Geral</div>
+                        <div class="sub-nav-item" data-tab="cs-1"><i class="fa-solid fa-chalkboard-user"></i> Treinamento Intensivo</div>
+                        <div class="sub-nav-item" data-tab="cs-2"><i class="fa-solid fa-clipboard-user"></i> Senioridade e Avaliação</div>
                     </div>
                 </div>
                 <div class="text-column" style="border-top: 5px solid var(--sec3-color);">
-                    <div class="text-header" style="color: var(--sec3-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>A Gestão Geral consiste na rotina fixa de acompanhamento das equipes, mantendo o foco em direcionar sem assumir a execução.</p>
+                    <div class="tab-bar">
+                        <button class="tab-btn active" data-tab="cs-0"><i class="fa-solid fa-graduation-cap"></i> Visão Geral</button>
+                        <button class="tab-btn" data-tab="cs-1"><i class="fa-solid fa-chalkboard-user"></i> Treinamento Intensivo</button>
+                        <button class="tab-btn" data-tab="cs-2"><i class="fa-solid fa-clipboard-user"></i> Senioridade e Avaliação</button>
+                    </div>
+                    <div class="proc-content tab-pane active" id="cs-0">
+<div class="pane-title" style="color: var(--sec3-color);"><i class="fa-solid fa-graduation-cap"></i> Autonomia e Especialização do CS</div>
+<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto e CS</span><span><i class="fa-solid fa-clock"></i> Contínuo</span></div>
+<p>A missão de Produto é transformar o CS em especialista de produto, com o mesmo nível de conhecimento da liderança. Enquanto a equipe depender de resposta imediata, ela não evolui e o tempo de Produto fica preso ao operacional.</p>
+<div class="callout"><strong>Regra:</strong> Produto não responde dúvida rotineira e não resolve situação no lugar do CS. O caminho é treinar, dar a fonte da resposta e cobrar a autonomia.</div>
+<p><strong>O que o CS passa a fazer sozinho:</strong></p>
+<ul>
+<li>Entender qual é a demanda real do cliente antes de escalar qualquer coisa.</li>
+<li>Resolver as questões de rotina e de funcionamento do sistema.</li>
+<li>Conduzir sozinho as reuniões com os clientes da carteira.</li>
+</ul>
+<p><strong>O que continua chegando a Produto:</strong> demanda de nível de produto, aberta como ticket estruturado — se a Contele faz ou não faz, e como faz —, principalmente nos clientes maiores. Havendo necessidade, Produto entra em reunião com o CS e com o cliente para decidir.</p>
+                    </div>
+                    <div class="proc-content tab-pane" id="cs-1">
+<div class="pane-title" style="color: var(--sec3-color);"><i class="fa-solid fa-chalkboard-user"></i> Treinamento Intensivo</div>
+<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto</span><span><i class="fa-solid fa-clock"></i> Ciclo intensivo e contínuo</span></div>
+<p>A formação deixa de ser sob demanda e passa a ser intensiva e planejada, com prazo definido para a equipe atingir o nível de especialista.</p>
+<ul>
+<li><strong>Sessões ao vivo:</strong> introdução, alinhamentos e resolução coletiva de dúvidas recorrentes.</li>
+<li><strong>Gravações e vídeos:</strong> materiais que demonstram as funcionalidades e ficam disponíveis para consulta.</li>
+<li><strong>Documentação:</strong> estudo dos processos, manuais e guias organizados.</li>
+</ul>
+<p>Quando a mesma dúvida aparece mais de uma vez, ela vira treinamento para toda a equipe — não resposta individual. O foco é consultoria e escuta ativa: investigar a raiz da dúvida em vez de responder o trivial.</p>
+<p><strong>Apoio a CS na rotina:</strong> participação em casos críticos e em reuniões de retenção, e abertura de tickets de melhoria das ferramentas do setor. Orientação de rotina e esclarecimento de dúvidas de sistema saem do escopo.</p>
+                    </div>
+                    <div class="proc-content tab-pane" id="cs-2">
+<div class="pane-title" style="color: var(--sec3-color);"><i class="fa-solid fa-clipboard-user"></i> Senioridade e Avaliação</div>
+<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto e RH</span><span><i class="fa-solid fa-clock"></i> Trimestral</span></div>
+<p>A equipe precisa saber, de forma explícita, que está sendo avaliada pelo nível que apresenta no dia a dia. Sem esse critério claro, perguntar é percebido como normal e a dependência se mantém.</p>
+<ul>
+<li>Autonomia entra como critério formal de avaliação e de classificação de senioridade.</li>
+<li>Avaliação em one-a-one, com formulário padronizado, conduzida pelo RH e com participação ativa de Produto.</li>
+<li>Quem não atinge o padrão no período avaliado é reposicionado.</li>
+</ul>
+<p>O indicador de sucesso da ação é a equipe inteira alcançar nível sênior — capaz de operar sem a presença da liderança de Produto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
+            <h2><i class="fa-solid fa-users-gear"></i> 8. Gestão da Equipe e Rotinas <span class="badge badge-macro">Ação macro</span></h2>
+            <div class="detail-grid">
+                <div class="meta-column">
+                    <div class="meta-card" style="border-left: 5px solid var(--sec3-color);">
+                        <ul class="feature-cards-list">
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Equipe e Gestão</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto, CS, Direção e Financeiro</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-bullseye"></i></div><div class="feature-text-wrapper"><strong>Resultado esperado</strong><span>Equipe organizada e dirigida sem assumir a execução</span></div></li>
+                        </ul>
+                    </div>
+                    <div class="sub-nav-card">
+                        <div class="sub-nav-title">Frentes</div>
+                        <div class="sub-nav-item active" data-tab="ge-0"><i class="fa-solid fa-users-gear"></i> Visão Geral</div>
+                        <div class="sub-nav-item" data-tab="ge-1"><i class="fa-solid fa-address-book"></i> Carteiras [Segmentação]</div>
+                        <div class="sub-nav-item" data-tab="ge-2"><i class="fa-solid fa-user-plus"></i> Integração de novo CS</div>
+                        <div class="sub-nav-item" data-tab="ge-3"><i class="fa-solid fa-money-check-dollar"></i> Remuneração e Horas</div>
+                        <div class="sub-nav-item" data-tab="ge-4"><i class="fa-solid fa-key"></i> Acessos e Processos</div>
+                    </div>
+                </div>
+                <div class="text-column" style="border-top: 5px solid var(--sec3-color);">
+                    <div class="tab-bar">
+                        <button class="tab-btn active" data-tab="ge-0"><i class="fa-solid fa-users-gear"></i> Visão Geral</button>
+                        <button class="tab-btn" data-tab="ge-1"><i class="fa-solid fa-address-book"></i> Carteiras</button>
+                        <button class="tab-btn" data-tab="ge-2"><i class="fa-solid fa-user-plus"></i> Integração de novo CS</button>
+                        <button class="tab-btn" data-tab="ge-3"><i class="fa-solid fa-money-check-dollar"></i> Remuneração e Horas</button>
+                        <button class="tab-btn" data-tab="ge-4"><i class="fa-solid fa-key"></i> Acessos e Processos</button>
+                    </div>
+                    <div class="proc-content tab-pane active" id="ge-0">
+<div class="pane-title" style="color: var(--sec3-color);"><i class="fa-solid fa-users-gear"></i> Gestão da Equipe e Rotinas</div>
+<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto</span><span><i class="fa-solid fa-clock"></i> Diário e semanal</span></div>
+<p>Rotina fixa de acompanhamento das equipes, mantendo o foco em direcionar sem assumir a execução.</p>
 <ul>
 <li>Acompanhamento diário unificado de CS, Vendas e Sustentação.</li>
 <li>Reunião semanal de CS: indicadores, casos críticos e novidades do sistema.</li>
 <li>One on one com cada colaborador: desempenho, feedback e desenvolvimento.</li>
 <li>Registrar combinados e retomá-los no encontro seguinte.</li>
 </ul>
-<p>Dentro da Gestão Geral estão organizadas as rotinas de Atualização de Processos, Gerenciamento de Acessos, Remuneração, Banco de Horas e Carteiras.</p>
+<p>As demais frentes desta ação — carteiras, integração, remuneração, banco de horas, acessos e atualização de processos — são rotinas de manutenção e não devem consumir o tempo destinado às ações macro anteriores.</p>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-file-pen"></i> Atualização de Processos <span class="parent-tag">Gestão Geral</span></h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec3-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Gestão</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Sob demanda</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-file-pen" style="color: var(--sec3-color);"></i>
-                        <h3 style="color: var(--sec3-color);">Atualização de Processos</h3>
-                        <div class="visual-sub">Gestão Geral</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec3-color);">
-                    <div class="text-header" style="color: var(--sec3-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>A Atualização de Processos consiste na revisão e na manutenção periódica dos processos mapeados, de modo a manter o Manual de Funções e Processos atualizado e alinhado às rotinas e práticas vigentes.</p>
-<p>A revisão é realizada diretamente no formato do Manual. Cada processo registrado é analisado, verificando sua aderência às rotinas atuais, com os ajustes necessários para que o conteúdo permaneça completo e atualizado a cada ciclo.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-key"></i> Gerenciamento de Acessos <span class="parent-tag">Gestão Geral</span></h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec3-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Gestão</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto e Tecnologia</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Sob demanda</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-key" style="color: var(--sec3-color);"></i>
-                        <h3 style="color: var(--sec3-color);">Gerenciamento de Acessos</h3>
-                        <div class="visual-sub">Gestão Geral</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec3-color);">
-                    <div class="text-header" style="color: var(--sec3-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>O Gerenciamento de Acessos engloba a administração de credenciais internas da equipe e a gestão de permissões ou módulos especiais para clientes do Contele Teams.</p>
-<p>O processo abrange a liberação e a revogação de acessos às ferramentas internas de trabalho — como GitHub, Notion, Figma, Pipedrive, Chatwoot, entre outras — para os colaboradores.</p>
-<p>Paralelamente, atende à liberação de permissões, módulos específicos ou funcionalidades em fase Beta diretamente para os usuários do sistema. As concessões ocorrem no painel administrativo e nas configurações nativas de cada ferramenta.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-money-check-dollar"></i> Remuneração <span class="parent-tag">Gestão Geral</span></h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec3-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Gestão</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto e CS</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Mensal</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-money-check-dollar" style="color: var(--sec3-color);"></i>
-                        <h3 style="color: var(--sec3-color);">Remuneração</h3>
-                        <div class="visual-sub">Gestão Geral</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec3-color);">
-                    <div class="text-header" style="color: var(--sec3-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>A Remuneração consiste em apurar os resultados das equipes e validar os valores devidos a cada ciclo.</p>
-<ul>
-<li>Conferir os indicadores e aplicar as regras do modelo vigente.</li>
-<li>Avaliar resultado relevante: retenção, economia e fechamento, não volume de tickets.</li>
-<li>Automatizar a apuração para eliminar a conferência manual.</li>
-<li>Devolver os resultados à equipe com transparência.</li>
-</ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-clock-rotate-left"></i> Banco de Horas <span class="parent-tag">Gestão Geral</span></h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec3-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Gestão</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Diário</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-clock-rotate-left" style="color: var(--sec3-color);"></i>
-                        <h3 style="color: var(--sec3-color);">Banco de Horas</h3>
-                        <div class="visual-sub">Gestão Geral</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec3-color);">
-                    <div class="text-header" style="color: var(--sec3-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>O Banco de Horas consiste em manter a operação equilibrada e preparada para ausências.</p>
-<ul>
-<li>Apurar o saldo de horas e identificar sobrecarga recorrente.</li>
-<li>Redistribuir demandas ou ajustar processos quando o acúmulo se repetir.</li>
-<li>Garantir pessoas preparadas para assumir responsabilidades em caso de ausência.</li>
-<li>Manter a figura do CS sênior de referência como apoio técnico da equipe.</li>
-</ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-address-book"></i> Carteiras [Segmentação] <span class="parent-tag">Gestão Geral</span></h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec3-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Gestão</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto e Direção</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Sob demanda</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-address-book" style="color: var(--sec3-color);"></i>
-                        <h3 style="color: var(--sec3-color);">Carteiras [Segmentação]</h3>
-                        <div class="visual-sub">Gestão Geral</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec3-color);">
-                    <div class="text-header" style="color: var(--sec3-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
+                    <div class="proc-content tab-pane" id="ge-1">
+<div class="pane-title" style="color: var(--sec3-color);"><i class="fa-solid fa-address-book"></i> Carteiras [Segmentação]</div>
+<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto e Direção</span><span><i class="fa-solid fa-clock"></i> Sob demanda</span></div>
 <p>As Carteiras definem o nível de serviço por porte de cliente e a distribuição das carteiras da equipe.</p>
-<p>A segmentação é conduzida em conjunto com a Direção, visando o melhor atendimento dos clientes e uma carteira saudável para cada CS.</p>
+<p>A segmentação é conduzida em conjunto com a Direção, visando o melhor atendimento dos clientes e uma carteira saudável para cada CS. Os 30 maiores clientes seguem com carteira atribuída ao CS e co-gestão de Produto.</p>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
-            <h2><i class="fa-solid fa-user-plus"></i> Integração de novo CS </h2>
-            <div class="detail-grid">
-                <div class="meta-column">
-                    <div class="meta-card" style="border-left: 5px solid var(--sec3-color);">
-                        <ul class="feature-cards-list">
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Gestão</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto e CS</span></div></li>
-                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Sob demanda</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="visual-card">
-                        <i class="fa-solid fa-user-plus" style="color: var(--sec3-color);"></i>
-                        <h3 style="color: var(--sec3-color);">Integração de novo CS</h3>
-                        <div class="visual-sub">Gestão</div>
-                    </div>
-                </div>
-                <div class="text-column" style="border-top: 5px solid var(--sec3-color);">
-                    <div class="text-header" style="color: var(--sec3-color);"><i class="fa-solid fa-align-left"></i> Detalhes do Processo</div>
-                    <div class="proc-content">
-<p>A Integração de novo CS consiste em capacitar o novo colaborador até que assuma carteira própria com autonomia.</p>
+                    <div class="proc-content tab-pane" id="ge-2">
+<div class="pane-title" style="color: var(--sec3-color);"><i class="fa-solid fa-user-plus"></i> Integração de novo CS</div>
+<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto e CS</span><span><i class="fa-solid fa-clock"></i> Sob demanda</span></div>
+<p>Capacitar o novo colaborador até que assuma carteira própria com autonomia.</p>
 <ul>
 <li>Apresentar empresa, produto e rotinas do setor.</li>
 <li>Treinar no sistema Contele Teams, web e aplicativo.</li>
@@ -847,14 +638,152 @@
 <li>Apresentar o sistema ao head de Produto, permitindo analisar o desenvolvimento do novo colaborador.</li>
 <li>Validar a aptidão antes da entrega da carteira.</li>
 </ul>
-<p>A capacitação combina sessões ao vivo, materiais gravados e a documentação organizada, e a entrega da carteira ocorre somente após a validação do domínio do sistema e dos processos.</p>
+<p>A entrega da carteira ocorre somente após a validação do domínio do sistema e dos processos.</p>
+                    </div>
+                    <div class="proc-content tab-pane" id="ge-3">
+<div class="pane-title" style="color: var(--sec3-color);"><i class="fa-solid fa-money-check-dollar"></i> Remuneração e Banco de Horas</div>
+<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto e CS</span><span><i class="fa-solid fa-clock"></i> Mensal e diário</span></div>
+<p><strong>Remuneração:</strong> apurar os resultados das equipes e validar os valores devidos a cada ciclo.</p>
+<ul>
+<li>Conferir os indicadores e aplicar as regras do modelo vigente.</li>
+<li>Avaliar resultado relevante: retenção, economia e fechamento, não volume de tickets.</li>
+<li>Automatizar a apuração para eliminar a conferência manual.</li>
+<li>Devolver os resultados à equipe com transparência.</li>
+</ul>
+<p><strong>Banco de Horas:</strong> apurar o saldo, identificar sobrecarga recorrente e redistribuir demandas ou ajustar processos quando o acúmulo se repetir, garantindo pessoas preparadas para assumir responsabilidades em caso de ausência.</p>
+                    </div>
+                    <div class="proc-content tab-pane" id="ge-4">
+<div class="pane-title" style="color: var(--sec3-color);"><i class="fa-solid fa-key"></i> Acessos e Atualização de Processos</div>
+<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto e Tecnologia</span><span><i class="fa-solid fa-clock"></i> Sob demanda</span></div>
+<p><strong>Gerenciamento de Acessos:</strong> liberação e revogação de credenciais internas — GitHub, Notion, Figma, Pipedrive, Chatwoot, entre outras — e concessão de permissões, módulos específicos ou funcionalidades em Beta aos usuários do sistema, feitas no painel administrativo e nas configurações nativas de cada ferramenta.</p>
+<p><strong>Atualização de Processos:</strong> revisão periódica deste Manual, verificando a aderência de cada ação às rotinas vigentes e mantendo o formato enxuto por ações macro a cada ciclo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
+            <h2><i class="fa-solid fa-layer-group"></i> Frentes Secundárias <span class="badge badge-sec">Prioridade secundária</span></h2>
+            <div class="detail-grid">
+                <div class="meta-column">
+                    <div class="meta-card" style="border-left: 5px solid var(--sec2-color);">
+                        <ul class="feature-cards-list">
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Classificação</strong><span>Secundária — nunca à frente das ações macro</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto, Design, Tecnologia, Projetos/IA e Marketing</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Diária e sob demanda</span></div></li>
+                        </ul>
+                    </div>
+                    <div class="sub-nav-card">
+                        <div class="sub-nav-title">Frentes</div>
+                        <div class="sub-nav-item active" data-tab="sc-0"><i class="fa-solid fa-circle-info"></i> Critério</div>
+                        <div class="sub-nav-item" data-tab="sc-1"><i class="fa-solid fa-wand-magic-sparkles"></i> Design e Melhorias</div>
+                        <div class="sub-nav-item" data-tab="sc-2"><i class="fa-solid fa-diagram-project"></i> Tickets de Projetos</div>
+                        <div class="sub-nav-item" data-tab="sc-3"><i class="fa-solid fa-calendar-day"></i> Daily e Rituais Técnicos</div>
+                        <div class="sub-nav-item" data-tab="sc-4"><i class="fa-solid fa-circle-question"></i> Ajuda e Changelog</div>
+                        <div class="sub-nav-item" data-tab="sc-5"><i class="fa-solid fa-comments-dollar"></i> Vendas e Avaliações</div>
+                    </div>
+                </div>
+                <div class="text-column" style="border-top: 5px solid var(--sec2-color);">
+                    <div class="tab-bar">
+                        <button class="tab-btn active" data-tab="sc-0"><i class="fa-solid fa-circle-info"></i> Critério</button>
+                        <button class="tab-btn" data-tab="sc-1"><i class="fa-solid fa-wand-magic-sparkles"></i> Design e Melhorias</button>
+                        <button class="tab-btn" data-tab="sc-2"><i class="fa-solid fa-diagram-project"></i> Tickets de Projetos</button>
+                        <button class="tab-btn" data-tab="sc-3"><i class="fa-solid fa-calendar-day"></i> Daily e Rituais</button>
+                        <button class="tab-btn" data-tab="sc-4"><i class="fa-solid fa-circle-question"></i> Ajuda e Changelog</button>
+                        <button class="tab-btn" data-tab="sc-5"><i class="fa-solid fa-comments-dollar"></i> Vendas e Avaliações</button>
+                    </div>
+                    <div class="proc-content tab-pane active" id="sc-0">
+<div class="pane-title" style="color: var(--sec2-color);"><i class="fa-solid fa-circle-info"></i> Critério de Prioridade</div>
+<div class="pane-meta"><span><i class="fa-solid fa-triangle-exclamation"></i> Secundárias por definição</span></div>
+<p>As frentes reunidas aqui continuam sob responsabilidade de Produto, mas passam a ser explicitamente secundárias: são executadas depois que as oito ações macro estão em andamento, nunca no lugar delas.</p>
+<div class="callout"><strong>Regra de decisão:</strong> quando uma frente secundária concorrer com uma ação macro pelo mesmo tempo, a ação macro vence. Uma hora aplicada em treinamento da equipe ou em conversa com clientes grandes tem mais efeito do que a mesma hora aplicada em execução técnica.</div>
+<p>Execução técnica e de design que possa ser conduzida por Design ou Sustentação não deve ocupar a liderança de Produto. O que não pode ser delegado é o papel descrito nas ações macro.</p>
+<p>A absorção permanente dessas frentes por Produto depende de haver outras pessoas atuando como produto na ponta — decisão que permanece em aberto com a Direção.</p>
+                    </div>
+                    <div class="proc-content tab-pane" id="sc-1">
+<div class="pane-title" style="color: var(--sec2-color);"><i class="fa-solid fa-wand-magic-sparkles"></i> Design e Melhorias</div>
+<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto, Design e CEO</span><span><i class="fa-solid fa-clock"></i> Sob demanda</span></div>
+<p>Condução das melhorias desde a identificação até a validação das soluções aplicadas ao Contele Teams, tratadas em reunião semanal com o designer, responsável por desenhar as telas de projetos e melhorias do sistema.</p>
+<p>Toda melhoria apresentada deve possuir história escrita, recebendo a label "Design" no GitHub. A plataforma oficial utilizada pelo designer é o Figma.</p>
+<p><strong>Origem das melhorias:</strong> solicitações de clientes, ideias debatidas e adaptações de projetos já criados.</p>
+<p><em>O desenho em si é atribuição do Design. Produto direciona e valida; a execução assumida diretamente é exceção, não rotina.</em></p>
+                    </div>
+                    <div class="proc-content tab-pane" id="sc-2">
+<div class="pane-title" style="color: var(--sec2-color);"><i class="fa-solid fa-diagram-project"></i> Tickets de Projetos</div>
+<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto e Projetos/IA</span><span><i class="fa-solid fa-clock"></i> Sob demanda</span></div>
+<p>Demandas de integrações, automações e projetos com Inteligência Artificial que, por sua natureza, não são tratadas como evoluções diretas no sistema, sendo conduzidas pela equipe de Projetos/IA.</p>
+<p>Os tickets são registrados e geridos no Contele OS, em <a href="https://os.contele.io/painel/projetos" target="_blank">os.contele.io/painel/projetos</a>.</p>
+<p>O fluxo tem início nas reuniões com o cliente, em que se busca entender a operação e o resultado esperado. Quando a demanda não deve, naquele momento, ser atendida por desenvolvimento no sistema, é desenhada a solução possível dentro do Contele Teams e o projeto é escalado para a equipe de Projetos/IA — evitando compromissos que o sistema não sustenta.</p>
+                    </div>
+                    <div class="proc-content tab-pane" id="sc-3">
+<div class="pane-title" style="color: var(--sec2-color);"><i class="fa-solid fa-calendar-day"></i> Daily e Rituais Técnicos</div>
+<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Tecnologia, Produto e Design</span><span><i class="fa-solid fa-clock"></i> Diário</span></div>
+<p>A Daily Teams reúne diariamente Desenvolvimento, Produto e Design para o alinhamento das entregas em andamento. A escolha do apresentador é por sorteio ou livre atribuição, e o Produto participa tirando dúvidas e propondo priorizações.</p>
+<p><strong>Ordem da apresentação:</strong></p>
+<ul>
+<li><strong>1ª parte:</strong> Sustentação comenta os novos casos abertos a partir de tickets de clientes.</li>
+<li><strong>2ª parte:</strong> Desenvolvedores comentam os SLAs da Sustentação no GitHub, somente os casos da semana.</li>
+<li><strong>3ª parte:</strong> Desenvolvedores, Produto e Design comentam suas issues ativas: Aguardando Deploy, Validando, Aguardando Validação, Impedido e WIP.</li>
+</ul>
+<p>Inclui também a abertura de ISOs e as reuniões técnicas com a equipe de desenvolvimento.</p>
+                    </div>
+                    <div class="proc-content tab-pane" id="sc-4">
+<div class="pane-title" style="color: var(--sec2-color);"><i class="fa-solid fa-circle-question"></i> Central de Ajuda e Changelog</div>
+<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto e Marketing</span><span><i class="fa-solid fa-clock"></i> Sob demanda</span></div>
+<p>A Central de Ajuda mantém a base de conhecimento do Contele Teams precisa e alinhada às versões mais recentes do sistema, com atualização disparada por lançamentos, alterações e correções relevantes, além da revisão contínua dos artigos existentes. Abrange os materiais de apoio usados por CS, Vendas e clientes — vídeos, guias e conteúdos feitos com o Marketing.</p>
+<p>O <strong>Changelog</strong> consolida e divulga as melhorias e correções entregues. As entradas vêm das issues concluídas no GitHub Projects ("Feito na Semana"), são movidas para a etapa "Changelog" quando representam novidade relevante e o conteúdo é formatado com apoio de I.A.</p>
+<p>A publicação ocorre na Web Teams (Novidades da Web), no App Teams (seção Novidades) e no grupo de WhatsApp "Teams | Melhorias no Sistema".</p>
+                    </div>
+                    <div class="proc-content tab-pane" id="sc-5">
+<div class="pane-title" style="color: var(--sec2-color);"><i class="fa-solid fa-comments-dollar"></i> Apoio a Vendas, Propostas e Avaliações</div>
+<div class="pane-meta"><span><i class="fa-solid fa-users"></i> Produto, Vendas, CEO e Marketing</span><span><i class="fa-solid fa-clock"></i> Sob demanda</span></div>
+<p><strong>Apoio a Vendas:</strong> suporte técnico à área Comercial em demonstrações e demos, esclarecimento de dúvidas sobre o sistema e participação em calls, além da reunião de alinhamento de vendas.</p>
+<p><strong>Propostas Comerciais e Descontos:</strong> avaliação de viabilidade em propostas com aspectos técnicos ou de customização, escalando integrações, automações e I.A. para a equipe de Projetos/IA; definição das condições de desconto com o CEO e revisão mensal do relatório com o Financeiro.</p>
+<p><strong>Auditorias:</strong> acompanhamento por amostragem de apresentações de vendedores, aderência à regra de licenças mínimas e padrão de onboarding — referência de 40 dias, até 60 dias em 20% dos casos justificados, com uso de ao menos dois módulos core. A análise de leads perdidos passa a ser conduzida na ação macro de Inteligência Comercial.</p>
+<p><strong>Avaliações Públicas:</strong> acompanhamento de Play Store, App Store, Reclame Aqui, Google e redes sociais. O Marketing responde publicamente; Produto fornece embasamento e extrai oportunidades de melhoria.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="https://i.ibb.co/k627ZVy6/oie-transparent-45.png" alt="Teams" class="logo-mini">
+            <h2><i class="fa-solid fa-bullseye"></i> Resultados e Medição <span class="parent-tag">Critério de avaliação</span></h2>
+            <div class="detail-grid">
+                <div class="meta-column">
+                    <div class="meta-card" style="border-left: 5px solid var(--sec3-color);">
+                        <ul class="feature-cards-list">
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text-wrapper"><strong>Seção</strong><span>Equipe e Gestão</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-users"></i></div><div class="feature-text-wrapper"><strong>Participantes</strong><span>Produto e Direção</span></div></li>
+                            <li><div class="feature-icon-wrapper"><i class="fa-solid fa-clock"></i></div><div class="feature-text-wrapper"><strong>Periodicidade</strong><span>Por ciclo de avaliação</span></div></li>
+                        </ul>
+                    </div>
+                    <div class="visual-card">
+                        <i class="fa-solid fa-bullseye" style="color: var(--sec3-color);"></i>
+                        <h3 style="color: var(--sec3-color);">Resultados e Medição</h3>
+                        <div class="visual-sub">Critério de avaliação</div>
+                    </div>
+                </div>
+                <div class="text-column" style="border-top: 5px solid var(--sec3-color);">
+                    <div class="text-header" style="color: var(--sec3-color);"><i class="fa-solid fa-align-left"></i> Como o trabalho é medido</div>
+                    <div class="proc-content">
+<p>O desempenho da liderança de Produto é medido por resultado, não por volume de atividade. A pergunta de avaliação é sempre a mesma: quais ações foram feitas e que resultado elas produziram.</p>
+<div class="kpi-grid">
+    <div class="kpi"><strong>Qualidade das vendas</strong><span>Quantas ações de produto destravaram venda e quantos motivos de não venda foram eliminados.</span></div>
+    <div class="kpi"><strong>Senioridade do CS</strong><span>Quanto a equipe evoluiu em autonomia real, até que todos estejam em nível sênior.</span></div>
+    <div class="kpi"><strong>Estabilidade do sistema</strong><span>Sistema atualizado, sem débito técnico acumulado e sem tickets recorrentes pelo mesmo motivo.</span></div>
+    <div class="kpi"><strong>Retenção das maiores contas</strong><span>Os 30 maiores clientes estáveis, com relação direta com a liderança de Produto.</span></div>
+</div>
+<p>O churn de <strong>3%</strong> permanece como meta transversal, sustentada pelas ações de usabilidade, cancelamento e co-gestão das maiores contas.</p>
+<div class="callout">Tudo está ligado em ciclo: sem CS autônomo, Produto não recebe as demandas certas; sem leitura do comercial e do cancelamento, o produto não evolui na direção certa; sem olhar de produto sobre a sustentação, o mesmo ticket se repete; sem proximidade com os maiores clientes, eles saem por falta de atenção.</div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="controls">
-            <span class="slide-counter" id="counter">1 / 23</span>
+            <span class="slide-counter" id="counter">1 / 13</span>
             <button class="control-btn" id="prevBtn" onclick="prevSlide()" disabled><i class="fa-solid fa-arrow-left"></i> Anterior</button>
             <button class="control-btn" id="nextBtn" onclick="nextSlide()">Próximo <i class="fa-solid fa-arrow-right"></i></button>
         </div>
@@ -864,35 +793,36 @@
         <div class="sidebar-title">Contele Teams</div>
         <ul class="index-list" id="sidebar-list">
             <li class="index-item" data-index="0"><i class="fa-solid fa-house"></i> Capa</li>
-            <li class="index-item" data-index="1"><i class="fa-solid fa-sitemap"></i> Índice de Processos</li>
-            <div class="index-group"><i class="fa-solid fa-cube" style="color: var(--sec1-color)"></i> Produto</div>
-            <li class="index-item" data-index="2" data-tab="hr-0"><i class="fa-solid fa-code-branch" style="color: var(--sec1-color)"></i> Histórias e Roadmap</li>
-            <li class="index-item sub-item" data-index="2" data-tab="hr-1"><i class="fa-solid fa-lightbulb" style="color: var(--sec1-color)"></i> Debate de Ideias</li>
-            <li class="index-item sub-item" data-index="2" data-tab="hr-2"><i class="fa-solid fa-gem" style="color: var(--sec1-color)"></i> Refinamento de Produto</li>
-            <li class="index-item sub-item" data-index="2" data-tab="hr-3"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--sec1-color)"></i> Design e Melhorias</li>
-            <li class="index-item sub-item" data-index="2" data-tab="hr-4"><i class="fa-solid fa-diagram-project" style="color: var(--sec1-color)"></i> Tickets de Projetos</li>
-            <li class="index-item sub-item" data-index="2" data-tab="hr-5"><i class="fa-solid fa-calendar-day" style="color: var(--sec1-color)"></i> Daily Teams</li>
-            <li class="index-item sub-item" data-index="3"><i class="fa-solid fa-clipboard-check" style="color: var(--sec1-color)"></i> Homologação e Divulgação</li>
-            <li class="index-item" data-index="4"><i class="fa-solid fa-ticket" style="color: var(--sec1-color)"></i> Gestão de Usabilidade</li>
-            <li class="index-item" data-index="5"><i class="fa-solid fa-circle-question" style="color: var(--sec1-color)"></i> Central de Ajuda e Materiais</li>
-            <li class="index-item sub-item" data-index="6"><i class="fa-solid fa-clipboard-list" style="color: var(--sec1-color)"></i> Aplicação de Changelog</li>
-            <li class="index-item" data-index="7"><i class="fa-solid fa-star-half-stroke" style="color: var(--sec1-color)"></i> Avaliações Públicas</li>
-            <div class="index-group"><i class="fa-solid fa-handshake" style="color: var(--sec2-color)"></i> Vendas e Customer Success</div>
-            <li class="index-item" data-index="8"><i class="fa-solid fa-headset" style="color: var(--sec2-color)"></i> Apoio a CS</li>
-            <li class="index-item" data-index="9"><i class="fa-solid fa-comments-dollar" style="color: var(--sec2-color)"></i> Apoio a Vendas</li>
-            <li class="index-item" data-index="10"><i class="fa-solid fa-graduation-cap" style="color: var(--sec2-color)"></i> Treinamentos</li>
-            <li class="index-item" data-index="11"><i class="fa-solid fa-magnifying-glass-chart" style="color: var(--sec2-color)"></i> Auditorias</li>
-            <li class="index-item" data-index="12"><i class="fa-solid fa-file-signature" style="color: var(--sec2-color)"></i> Propostas Comerciais</li>
-            <li class="index-item" data-index="13"><i class="fa-solid fa-clipboard-user" style="color: var(--sec2-color)"></i> Avaliações de CS</li>
-            <li class="index-item" data-index="14"><i class="fa-solid fa-percent" style="color: var(--sec2-color)"></i> Descontos e Negociações</li>
-            <div class="index-group"><i class="fa-solid fa-users-gear" style="color: var(--sec3-color)"></i> Gestão</div>
-            <li class="index-item" data-index="15"><i class="fa-solid fa-users-gear" style="color: var(--sec3-color)"></i> Gestão Geral</li>
-            <li class="index-item sub-item" data-index="16"><i class="fa-solid fa-file-pen" style="color: var(--sec3-color)"></i> Atualização de Processos</li>
-            <li class="index-item sub-item" data-index="17"><i class="fa-solid fa-key" style="color: var(--sec3-color)"></i> Gerenciamento de Acessos</li>
-            <li class="index-item sub-item" data-index="18"><i class="fa-solid fa-money-check-dollar" style="color: var(--sec3-color)"></i> Remuneração</li>
-            <li class="index-item sub-item" data-index="19"><i class="fa-solid fa-clock-rotate-left" style="color: var(--sec3-color)"></i> Banco de Horas</li>
-            <li class="index-item sub-item" data-index="20"><i class="fa-solid fa-address-book" style="color: var(--sec3-color)"></i> Carteiras [Segmentação]</li>
-            <li class="index-item" data-index="21"><i class="fa-solid fa-user-plus" style="color: var(--sec3-color)"></i> Integração de novo CS</li>
+            <li class="index-item" data-index="1"><i class="fa-solid fa-sitemap"></i> Índice de Ações Macro</li>
+            <li class="index-item" data-index="2"><i class="fa-solid fa-compass"></i> Princípios da Função</li>
+            <div class="index-group"><i class="fa-solid fa-cube" style="color: var(--sec1-color)"></i> Produto e Sistema</div>
+            <li class="index-item" data-index="3" data-tab="pr-0"><i class="fa-solid fa-code-branch" style="color: var(--sec1-color)"></i> 1. Evolução do Produto</li>
+            <li class="index-item sub-item" data-index="3" data-tab="pr-1"><i class="fa-solid fa-lightbulb" style="color: var(--sec1-color)"></i> Debate de Ideias</li>
+            <li class="index-item sub-item" data-index="3" data-tab="pr-2"><i class="fa-solid fa-gem" style="color: var(--sec1-color)"></i> Refinamento de Produto</li>
+            <li class="index-item sub-item" data-index="3" data-tab="pr-3"><i class="fa-solid fa-clipboard-check" style="color: var(--sec1-color)"></i> Homologação e Divulgação</li>
+            <li class="index-item" data-index="4"><i class="fa-solid fa-ticket" style="color: var(--sec1-color)"></i> 2. Tickets e Usabilidade</li>
+            <li class="index-item" data-index="5"><i class="fa-solid fa-screwdriver-wrench" style="color: var(--sec1-color)"></i> 3. Débitos Técnicos</li>
+            <div class="index-group"><i class="fa-solid fa-handshake" style="color: var(--sec2-color)"></i> Comercial e Clientes</div>
+            <li class="index-item" data-index="6"><i class="fa-solid fa-chart-line" style="color: var(--sec2-color)"></i> 4. Inteligência Comercial</li>
+            <li class="index-item" data-index="7"><i class="fa-solid fa-crown" style="color: var(--sec2-color)"></i> 5. 30 Maiores Clientes</li>
+            <li class="index-item" data-index="8"><i class="fa-solid fa-shield-halved" style="color: var(--sec2-color)"></i> 6. Prevenção de Cancelamentos</li>
+            <div class="index-group"><i class="fa-solid fa-users-gear" style="color: var(--sec3-color)"></i> Equipe e Gestão</div>
+            <li class="index-item" data-index="9" data-tab="cs-0"><i class="fa-solid fa-graduation-cap" style="color: var(--sec3-color)"></i> 7. Autonomia do CS</li>
+            <li class="index-item sub-item" data-index="9" data-tab="cs-1"><i class="fa-solid fa-chalkboard-user" style="color: var(--sec3-color)"></i> Treinamento Intensivo</li>
+            <li class="index-item sub-item" data-index="9" data-tab="cs-2"><i class="fa-solid fa-clipboard-user" style="color: var(--sec3-color)"></i> Senioridade e Avaliação</li>
+            <li class="index-item" data-index="10" data-tab="ge-0"><i class="fa-solid fa-users-gear" style="color: var(--sec3-color)"></i> 8. Gestão da Equipe</li>
+            <li class="index-item sub-item" data-index="10" data-tab="ge-1"><i class="fa-solid fa-address-book" style="color: var(--sec3-color)"></i> Carteiras [Segmentação]</li>
+            <li class="index-item sub-item" data-index="10" data-tab="ge-2"><i class="fa-solid fa-user-plus" style="color: var(--sec3-color)"></i> Integração de novo CS</li>
+            <li class="index-item sub-item" data-index="10" data-tab="ge-3"><i class="fa-solid fa-money-check-dollar" style="color: var(--sec3-color)"></i> Remuneração e Horas</li>
+            <li class="index-item sub-item" data-index="10" data-tab="ge-4"><i class="fa-solid fa-key" style="color: var(--sec3-color)"></i> Acessos e Processos</li>
+            <div class="index-group"><i class="fa-solid fa-layer-group" style="color: var(--sec2-color)"></i> Secundárias e Medição</div>
+            <li class="index-item" data-index="11" data-tab="sc-0"><i class="fa-solid fa-layer-group" style="color: var(--sec2-color)"></i> Frentes Secundárias</li>
+            <li class="index-item sub-item" data-index="11" data-tab="sc-1"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--sec2-color)"></i> Design e Melhorias</li>
+            <li class="index-item sub-item" data-index="11" data-tab="sc-2"><i class="fa-solid fa-diagram-project" style="color: var(--sec2-color)"></i> Tickets de Projetos</li>
+            <li class="index-item sub-item" data-index="11" data-tab="sc-3"><i class="fa-solid fa-calendar-day" style="color: var(--sec2-color)"></i> Daily e Rituais Técnicos</li>
+            <li class="index-item sub-item" data-index="11" data-tab="sc-4"><i class="fa-solid fa-circle-question" style="color: var(--sec2-color)"></i> Ajuda e Changelog</li>
+            <li class="index-item sub-item" data-index="11" data-tab="sc-5"><i class="fa-solid fa-comments-dollar" style="color: var(--sec2-color)"></i> Vendas e Avaliações</li>
+            <li class="index-item" data-index="12"><i class="fa-solid fa-bullseye" style="color: var(--sec3-color)"></i> Resultados e Medição</li>
         </ul>
     </div>
 
